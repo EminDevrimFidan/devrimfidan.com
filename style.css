@@ -1,67 +1,66 @@
-html {
-  background: #222;
-  font-family: helvetica;
+:root {
+  --offset: 6px;
+}
+
+body {
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 100vh;
-}
-html .blue {
-  color: #53d9d1;
-}
-html .pink {
-  color: #f27b9b;
-}
-html .orange {
-  color: #eb7132;
-}
-html .console {
-  border: 1px solid #444;
-  border-radius: 3px;
-  margin: 2rem;
-  box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.75);
-}
-html .console .top {
-  background: #333;
-  color: #666;
-  text-align: center;
-  font-size: 12px;
-  padding: 5px;
-}
-html .console .top .options {
-  font-size: 16px;
-  float: left;
-}
-html .console .text {
-  font-family: courier;
-  color: #fff;
-  font-size: 14px;
-  padding: 0.25rem;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.typewriter {
+h2 {
+  width: 980px;
+  font-size: 100px;
+  font-family: Helvetica;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: #1d1d1f;
+}
+
+.mask {
+  height: 106px;
+  position: relative;
   overflow: hidden;
-  width: fit-content;
-  white-space: nowrap;
-  border-right: 0.15em solid #eb7132;
-  animation: typing 3s steps(15, end), blink-caret 0.75s step-end infinite;
+  margin-top: var(--offset);
 }
 
-/* The typing effect */
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 60%;
-  }
+.mask span {
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 100px;
+  padding-bottom: var(--offset);
+  
+  background-size: 100% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-repeat: no-repeat;
 }
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: orange;
-  }
+
+.mask span[data-show] {
+  transform: translateY(-100%);
+  transition: .5s transform ease-in-out;
+}
+
+.mask span[data-up] {
+  transform: translateY(-200%);
+  transition: .5s transform ease-in-out;
+}
+
+.mask span:nth-child(1) {
+  background-image: linear-gradient(45deg, #0ecffe 50%, #07a6f1);
+}
+
+.mask span:nth-child(2) {
+  background-image: linear-gradient(45deg, #18e198 50%, #0ec15d);
+}
+
+.mask span:nth-child(3) {
+  background-image: linear-gradient(45deg, #8a7cfb 50%, #633e9c);
+}
+
+.mask span:nth-child(4) {
+  background-image: linear-gradient(45deg, #fa7671 50%, #f45f7f);
 }
