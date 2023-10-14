@@ -198,7 +198,7 @@
 })(
   {
     avatarUrl: 'https://gravatar.com/avatar/c88d6da4777ebf0cc5f28ceee806cab515891227b255fcacc2f15e0565dfc693?s=200',
-    message: 'Hi,! I am Emin Fidan! <br>I develop and implement <br>high-quality solutions <br>that support student recruitment <br>and marketing strategies.',
+    message: 'Hi,! I am Emin Fidan! <br>I develop and implement <br>high-quality solutions <br>for student recruitment <br>and marketing strategies.',
     socialMedia: [
      
       {
