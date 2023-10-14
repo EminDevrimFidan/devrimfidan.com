@@ -694,6 +694,21 @@ button:hover,
   filter: brightness(90%);
 }
 
+/* Quora */
+.button.button-quora {
+  color: #ffffff;
+  background-color: #a82400;
+}
+.button.button-quora:hover,
+.button.button-quora:focus {
+  filter: brightness(90%);
+}
+
+
+
+
+
+
 /* Post.news */
 .button.button-post-news {
   color: #ffffff;
