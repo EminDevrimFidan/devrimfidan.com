@@ -198,12 +198,12 @@
 })(
   {
     avatarUrl: 'https://gravatar.com/avatar/c88d6da4777ebf0cc5f28ceee806cab515891227b255fcacc2f15e0565dfc693?s=200',
-    message: 'Merhaba, ben Emin! <br/>Uluslararası öğrenci temini <br/>ve pazarlama teknolojileri <br/>konusunda deneyimli bir <br/>profesyonelim.',
+    message: 'Hi,! I am Emin Fidan! <br>I develop and implement <br>high-quality solutions <br>that support student recruitment <br>and marketing strategies.',
     socialMedia: [
      
       {
         name: 'Linkedin',
-        url: 'https://linkedin.com/emindevrimfidan'
+        url: 'https://linkedin.com/in/emindevrimfidan'
       },
       {
         name: 'Blog',
