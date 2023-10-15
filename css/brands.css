@@ -424,7 +424,7 @@ button:hover,
 /* Goodreads */
 .button.button-goodreads {
   color: #333333;
-  background-color: #f4f1ea;
+  background-color: #f3f1e6;
   border: 1px solid #212121;
 }
 .button.button-goodreads:hover,
@@ -686,7 +686,7 @@ button:hover,
 /* Pinterest */
 .button.button-pinterest {
   color: #000000;
-  background-color: #ffe2eb;
+  background-color: #e8e4ca;
   border: 1px solid #212121;
 }
 .button.button-pinterest:hover,
@@ -697,7 +697,7 @@ button:hover,
 /* Quora */
 .button.button-quora {
   color: #ffffff;
-  background-color: #a82400;
+  background-color: #b92a28;
 }
 .button.button-quora:hover,
 .button.button-quora:focus {
