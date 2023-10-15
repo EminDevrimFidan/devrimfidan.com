@@ -424,7 +424,7 @@ button:hover,
 /* Goodreads */
 .button.button-goodreads {
   color: #333333;
-  background-color: #f3f1e6;
+  background-color: #e8e4ca;
   border: 1px solid #212121;
 }
 .button.button-goodreads:hover,
@@ -697,7 +697,7 @@ button:hover,
 /* Quora */
 .button.button-quora {
   color: #ffffff;
-  background-color: #b92a28;
+  background-color: #a82400;
 }
 .button.button-quora:hover,
 .button.button-quora:focus {
