@@ -1,3 +1,2 @@
 # devrimfidan.com
-My Personal Website & Portfolio
-
+Personal Website & Portfolio
