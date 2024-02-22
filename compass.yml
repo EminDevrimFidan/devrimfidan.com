@@ -1,0 +1,18 @@
+name: devrimfidan.com
+id: 'ari:cloud:compass:1eff6431-643d-438b-980f-99a741ea64ac:component/a0b47a50-42ec-4415-a939-86d85e1b01a4/cac8c1d8-a8f2-44ae-8d7d-7c8dbbb7715e'
+description: null
+configVersion: 1
+typeId: WEBSITE
+ownerId: 'ari:cloud:teams::team/dc01cc74-b1bc-4373-a6a9-5754b272e6cb'
+fields:
+  tier: 4
+links:
+  - name: null
+    type: REPOSITORY
+    url: 'https://github.com/devrimfidan/devrimfidan.com'
+relationships: {}
+labels: null
+customFields: null
+
+# Learn more about formatting compass.yml:
+# https://go.atlassian.com/compass-yml-format
