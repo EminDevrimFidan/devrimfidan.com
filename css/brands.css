@@ -64,6 +64,11 @@ button:hover,
   filter: brightness(90%);
 }
 
+/* hide element */
+a.hidden {
+  visibility: hidden;
+}
+
 /* Brand Icons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
