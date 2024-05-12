@@ -65,7 +65,7 @@ button:hover,
 }
 
 /* hide element */
-a.hidden {
+.hidden {
   visibility: hidden;
 }
 
