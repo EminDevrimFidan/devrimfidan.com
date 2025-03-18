@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Trips and Plans</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-globe-americas"></i>
+        </div>
+        <div class="site-title">My Trips and Plans</div>
+        <button class="dark-mode-toggle">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+    
+    <div class="content">
+        <div class="sidebar">
+            <div class="filter-bar">
+                <button class="filter-button" id="reset-filters">
+                    <i class="fas fa-sync-alt"></i>
+                    <span></span>
+                </button>
+                <select class="filter-dropdown" id="status-filter">
+                    <option value="all">Status</option>
+                    <option value="visited">Visited</option>
+                    <option value="planned">Planned</option>
+                    <option value="wishlist">Wishlist</option>
+                </select>
+                <select class="filter-dropdown" id="country-filter">
+                    <option value="all">Country</option>
+                    <!-- Countries will be populated by JavaScript -->
+                </select>
+                <select class="filter-dropdown" id="year-filter">
+                    <option value="all">Year</option>
+                    <!-- Years will be populated by JavaScript -->
+                </select>
+            </div>
+            <ul class="destination-list" id="destination-list">
+                <!-- Destinations will be populated by JavaScript -->
+            </ul>
+        </div>
+        
+        <div class="map-container">
+            <div id="map"></div>
+            <div class="map-controls">
+                <button class="map-btn" id="zoom-in">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <button class="map-btn" id="zoom-out">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button class="map-btn" id="center-map">
+                    <i class="fas fa-compress-arrows-alt"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div>© 2025 My Trips and Plans</div>
+        <div>This is a fun project!</div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="data.json"></script>
+    <script src="script.js"></script>
+</body>
+</html>
