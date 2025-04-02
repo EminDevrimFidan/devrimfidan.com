@@ -6,15 +6,20 @@
     <title>Certificate Redirect</title>
     <script>
         async function redirect() {
-            const pathSegments = window.location.pathname.split('/');
-            const certificateName = pathSegments[pathSegments.length - 1]; // Last part of URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const certificateId = urlParams.get('id'); // Get certificate ID from ?id=
+
+            if (!certificateId) {
+                document.body.innerHTML = '<h1>Missing Certificate ID</h1>';
+                return;
+            }
 
             try {
-                const response = await fetch('/certificates/redirects.json');
+                const response = await fetch('redirects.json'); // Load JSON file
                 const redirects = await response.json();
 
-                if (redirects[certificateName]) {
-                    window.location.href = redirects[certificateName];
+                if (redirects[certificateId]) {
+                    window.location.href = redirects[certificateId]; // Redirect
                 } else {
                     document.body.innerHTML = '<h1>Certificate Not Found</h1>';
                 }
