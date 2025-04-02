@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Redirect</title>
+    <script>
+        async function redirect() {
+            const path = window.location.pathname.split('/').pop(); // Get last part of URL
+            try {
+                const response = await fetch('redirects.json');
+                const redirects = await response.json();
+                if (redirects[path]) {
+                    window.location.href = redirects[path];
+                } else {
+                    document.body.innerHTML = '<h1>Certificate Not Found</h1>';
+                }
+            } catch (error) {
+                console.error('Error loading redirects:', error);
+                document.body.innerHTML = '<h1>Error Loading Redirects</h1>';
+            }
+        }
+        
+        window.onload = redirect;
+    </script>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+</body>
+</html>
