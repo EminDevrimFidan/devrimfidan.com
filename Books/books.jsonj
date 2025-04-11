@@ -1,0 +1,14 @@
+[
+  {
+    "title": "The Hobbit",
+    "shelf": "read"
+  },
+  {
+    "title": "Sapiens",
+    "shelf": "currently-reading"
+  },
+  {
+    "title": "Atomic Habits",
+    "shelf": "to-read"
+  }
+]
