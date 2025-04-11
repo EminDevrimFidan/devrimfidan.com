@@ -1,101 +1,116 @@
-{
-  "currently_reading": [
-    {
-      "title": "The Personal MBA",
-      "link": "https://www.goodreads.com/book/show/55207260-the-personal-mba",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1598998064l/55207260._SY75_.jpg"
-    },
-    {
-      "title": "Power and Progress: Our Thousand-Year Struggle Over Technology and Prosperity",
-      "link": "https://www.goodreads.com/book/show/62315566-power-and-progress",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1684146198l/62315566._SX50_.jpg"
-    },
-    {
-      "title": "Politics On the Edge",
-      "link": "https://www.goodreads.com/book/show/212342565-politics-on-the-edge",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1714442841l/212342565._SY75_.jpg"
-    }
-  ],
-  "to_read": [
-    {
-      "title": "Intermezzo",
-      "link": "https://www.goodreads.com/book/show/219215607-intermezzo",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1726457321l/219215607._SX50_.jpg"
-    },
-    {
-      "title": "Supercommunicators: How to Unlock the Secret Language of Connection",
-      "link": "https://www.goodreads.com/book/show/157998171-supercommunicators",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1708800608l/157998171._SY75_.jpg"
-    },
-    {
-      "title": "Funny Story",
-      "link": "https://www.goodreads.com/book/show/196890737-funny-story",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1692101276l/196890737._SX50_.jpg"
-    },
-    {
-      "title": "Orbital",
-      "link": "https://www.goodreads.com/book/show/123314421-orbital",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1682061926l/123314421._SY75_.jpg"
-    },
-    {
-      "title": "The Anthropologists",
-      "link": "https://www.goodreads.com/book/show/218044776-the-anthropologists",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1724513813l/218044776._SX50_.jpg"
-    },
-    {
-      "title": "Parenting the First Twelve Years",
-      "link": "https://www.goodreads.com/book/show/41463798-parenting-the-first-twelve-years",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1535296177l/41463798._SY75_.jpg"
-    },
-    {
-      "title": "Nexus: A Brief History of Information Networks",
-      "link": "https://www.goodreads.com/book/show/218729351-nexus",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1726113935l/218729351._SX50_.jpg"
-    },
-    {
-      "title": "Think Remarkable",
-      "link": "https://www.goodreads.com/book/show/209036141-think-remarkable",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718898891l/209036141._SX50_.jpg"
-    },
-    {
-      "title": "Mindwandering",
-      "link": "https://www.goodreads.com/book/show/58293283-mindwandering",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1721438129l/58293283._SX50_.jpg"
-    },
-    {
-      "title": "Revenge of the Tipping Point",
-      "link": "https://www.goodreads.com/book/show/216857785-revenge-of-the-tipping-point",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1721984170l/216857785._SY75_.jpg"
-    },
-    {
-      "title": "Let's Talk About Aging Parents",
-      "link": "https://www.goodreads.com/book/show/56271374-let-s-talk-about-aging-parents",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1712605882l/56271374._SY75_.jpg"
-    },
-    {
-      "title": "The 5 Principles of Parenting",
-      "link": "https://www.goodreads.com/book/show/191004855-the-5-principles-of-parenting",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1697829254l/191004855._SY75_.jpg"
-    },
-    {
-      "title": "Losing My Virginity",
-      "link": "https://www.goodreads.com/book/show/13042724-losing-my-virginity",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1353357727l/13042724._SY75_.jpg"
-    },
-    {
-      "title": "Kara Kitap",
-      "link": "https://www.goodreads.com/book/show/41054332-kara-kitap",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1533521442l/41054332._SX50_.jpg"
-    },
-    {
-      "title": "Lunch with the FT: A Second Helping",
-      "link": "https://www.goodreads.com/book/show/52535488-lunch-with-the-ft",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1565132540l/52535488._SX50_SY75_.jpg"
-    },
-    {
-      "title": "When We Cease to Understand the World",
-      "link": "https://www.goodreads.com/book/show/62069739-when-we-cease-to-understand-the-world",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1661332705l/62069739._SX50_.jpg"
-    }
-  ]
-}
+[
+  {
+    "title": "The Personal MBA",
+    "link": "https://www.goodreads.com/book/show/55207260-the-personal-mba",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1598998064l/55207260._SY75_.jpg",
+    "status": "currently-reading"
+  },
+  {
+    "title": "Power and Progress: Our Thousand-Year Struggle Over Technology and Prosperity",
+    "link": "https://www.goodreads.com/book/show/62315566-power-and-progress",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1684146198l/62315566._SX50_.jpg",
+    "status": "currently-reading"
+  },
+  {
+    "title": "Politics On the Edge",
+    "link": "https://www.goodreads.com/book/show/212342565-politics-on-the-edge",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1714442841l/212342565._SY75_.jpg",
+    "status": "currently-reading"
+  },
+  {
+    "title": "Intermezzo",
+    "link": "https://www.goodreads.com/book/show/219215607-intermezzo",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1726457321l/219215607._SX50_.jpg",
+    "status": "to-read"
+  },
+  {
+    "title": "Supercommunicators: How to Unlock the Secret Language of Connection",
+    "link": "https://www.goodreads.com/book/show/157998171-supercommunicators",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1708800608l/157998171._SY75_.jpg",
+    "status": "to-read"
+  },
+  {
+    "title": "Funny Story",
+    "link": "https://www.goodreads.com/book/show/196890737-funny-story",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1692101276l/196890737._SX50_.jpg",
+    "status": "to-read"
+  },
+  {
+    "title": "Orbital",
+    "link": "https://www.goodreads.com/book/show/123314421-orbital",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1682061926l/123314421._SY75_.jpg",
+    "status": "to-read"
+  },
+  {
+    "title": "The Anthropologists",
+    "link": "https://www.goodreads.com/book/show/218044776-the-anthropologists",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1724513813l/218044776._SX50_.jpg",
+    "status": "to-read"
+  },
+  {
+    "title": "Parenting the First Twelve Years",
+    "link": "https://www.goodreads.com/book/show/41463798-parenting-the-first-twelve-years",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1535296177l/41463798._SY75_.jpg",
+    "status": "to-read"
+  },
+  {
+    "title": "Nexus: A Brief History of Information Networks",
+    "link": "https://www.goodreads.com/book/show/218729351-nexus",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1726113935l/218729351._SX50_.jpg",
+    "status": "to-read"
+  },
+  {
+    "title": "Think Remarkable",
+    "link": "https://www.goodreads.com/book/show/209036141-think-remarkable",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718898891l/209036141._SX50_.jpg",
+    "status": "to-read"
+  },
+  {
+    "title": "Mindwandering",
+    "link": "https://www.goodreads.com/book/show/58293283-mindwandering",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1721438129l/58293283._SX50_.jpg",
+    "status": "to-read"
+  },
+  {
+    "title": "Revenge of the Tipping Point",
+    "link": "https://www.goodreads.com/book/show/216857785-revenge-of-the-tipping-point",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1721984170l/216857785._SY75_.jpg",
+    "status": "to-read"
+  },
+  {
+    "title": "Let's Talk About Aging Parents",
+    "link": "https://www.goodreads.com/book/show/56271374-let-s-talk-about-aging-parents",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1712605882l/56271374._SY75_.jpg",
+    "status": "to-read"
+  },
+  {
+    "title": "The 5 Principles of Parenting",
+    "link": "https://www.goodreads.com/book/show/191004855-the-5-principles-of-parenting",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1697829254l/191004855._SY75_.jpg",
+    "status": "to-read"
+  },
+  {
+    "title": "Losing My Virginity",
+    "link": "https://www.goodreads.com/book/show/13042724-losing-my-virginity",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1353357727l/13042724._SY75_.jpg",
+    "status": "to-read"
+  },
+  {
+    "title": "Kara Kitap",
+    "link": "https://www.goodreads.com/book/show/41054332-kara-kitap",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1533521442l/41054332._SX50_.jpg",
+    "status": "to-read"
+  },
+  {
+    "title": "Lunch with the FT: A Second Helping",
+    "link": "https://www.goodreads.com/book/show/52535488-lunch-with-the-ft",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1565132540l/52535488._SX50_SY75_.jpg",
+    "status": "to-read"
+  },
+  {
+    "title": "When We Cease to Understand the World",
+    "link": "https://www.goodreads.com/book/show/62069739-when-we-cease-to-understand-the-world",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1661332705l/62069739._SX50_.jpg",
+    "status": "to-read"
+  }
+]
