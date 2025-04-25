@@ -1,0 +1,67 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  padding: 1em;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#filter-buttons {
+  margin-top: 1em;
+}
+
+#filter-buttons button {
+  margin: 0 0.5em;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background: #eee;
+  transition: 0.2s;
+}
+
+#filter-buttons button:hover {
+  background: #ddd;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1em;
+  padding: 2em;
+}
+
+.book-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1em;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: 0.2s;
+}
+
+.book-card img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.book-card:hover {
+  transform: scale(1.02);
+}
+
+.book-title {
+  font-weight: bold;
+  margin: 0.5em 0 0.2em;
+}
+
+.book-author {
+  font-size: 0.9em;
+  color: #777;
+}
