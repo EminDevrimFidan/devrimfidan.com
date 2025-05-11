@@ -4,6 +4,7 @@ const destinationsData = [
         "id": "singapore",
         "name": "Singapore",
         "country": "Singapore",
+        "continent": "Asia",
         "image": "https://images.unsplash.com/photo-1525625293386-3f8f99389edd",
         "status": "planned",
         "year": 2025,
@@ -12,32 +13,28 @@ const destinationsData = [
         "link": "https://www.visitsingapore.com",
         "notes": "Hope to visit Gardens by the Bay",
         "detailedNotes": "Singapore is a sovereign island city-state in maritime Southeast Asia. Planning to visit iconic attractions like Marina Bay Sands, Gardens by the Bay, and trying local food at hawker centers. Need to research transportation options and must-see cultural sites.",
-        "coordinates": {
-            "lat": 1.3521,
-            "lng": 103.8198
-        }
+        "coordinates": { "lat": 1.3521, "lng": 103.8198 }
     },
     {
         "id": "edinburgh",
         "name": "Edinburgh",
         "country": "United Kingdom",
-        "image": "https://images.unsplash.com/photo-1568797629134-299223133aab",
-        "status": "planned",
-        "year": 2026,
+        "continent": "Europe",
+        "image": "https://images.unsplash.com/photo-1594929109002-01e2e17a964d",
+        "status": "visited",
+        "year": 2024,
         "transport": "train",
-        "duration": "1 week, 3 days",
+        "duration": "3 days",
         "link": "https://edinburgh.org/",
         "notes": "Want to see the castle and old town",
         "detailedNotes": "Edinburgh is Scotland's compact, hilly capital. Looking forward to exploring Edinburgh Castle, the Royal Mile, and hiking Arthur's Seat. Planning to attend the Edinburgh Festival if timing works out. Need to try haggis and visit some whisky distilleries.",
-        "coordinates": {
-            "lat": 55.9533,
-            "lng": -3.1883
-        }
+        "coordinates": { "lat": 55.9533, "lng": -3.1883 }
     },
     {
         "id": "bali",
         "name": "Bali",
         "country": "Indonesia",
+        "continent": "Asia",
         "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4",
         "status": "planned",
         "year": 2025,
@@ -46,32 +43,28 @@ const destinationsData = [
         "link": "https://www.indonesia.travel/gb/en/destinations/bali-nusa-tenggara/bali",
         "notes": "Beach vacation and yoga retreat",
         "detailedNotes": "Bali is a province of Indonesia and the westernmost of the Lesser Sunda Islands. Excited to experience the beautiful beaches, rice terraces, and temples. Planning to stay in Ubud for a yoga retreat, visit Uluwatu Temple, and relax on Kuta beach. Need to research local customs and best times to visit attractions.",
-        "coordinates": {
-            "lat": -8.3405,
-            "lng": 115.0920
-        }
+        "coordinates": { "lat": -8.3405, "lng": 115.0920 }
     },
     {
         "id": "tiran",
         "name": "Tirana",
         "country": "Albania",
-        "image": "https://images.unsplash.com/photo-1581930407856-21f21261c391",
+        "continent": "Europe",
+        "image": "https://images.unsplash.com/photo-1624305740286-dbbccc54fb96?",
         "status": "visited",
-        "year": 2023,
+        "year": 2025,
         "transport": "flight",
-        "duration": "3 days, 5 hrs",
+        "duration": "2 days",
         "link": null,
         "notes": "Loved the colorful buildings",
         "detailedNotes": "Tirana is the capital and largest city of Albania. Enjoyed the colorful buildings, Bunk'Art museum, and the vibrant cafe culture. The contrast between Ottoman, Italian, and communist architecture was fascinating. The Pyramid of Tirana was undergoing renovation during my visit. The food was delicious and very affordable.",
-        "coordinates": {
-            "lat": 41.3275,
-            "lng": 19.8187
-        }
+        "coordinates": { "lat": 41.3275, "lng": 19.8187 }
     },
     {
         "id": "new_york",
         "name": "New York",
         "country": "United States",
+        "continent": "North America",
         "image": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9",
         "status": "visited",
         "year": 2022,
@@ -80,15 +73,13 @@ const destinationsData = [
         "link": "https://www.nycgo.com/",
         "notes": "Amazing experience, but expensive",
         "detailedNotes": "New York City comprises 5 boroughs sitting where the Hudson River meets the Atlantic Ocean. Visited all the major attractions: Empire State Building, Statue of Liberty, Central Park, Times Square, and the Metropolitan Museum of Art. Broadway shows were incredible but pricey. The food scene was diverse and fantastic. Stayed in Manhattan but explored Brooklyn and Queens as well.",
-        "coordinates": {
-            "lat": 40.7128,
-            "lng": -74.0060
-        }
+        "coordinates": { "lat": 40.7128, "lng": -74.0060 }
     },
     {
         "id": "tokyo",
         "name": "Tokyo",
         "country": "Japan",
+        "continent": "Asia",
         "image": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc",
         "status": "wishlist",
         "year": 2027,
@@ -97,15 +88,13 @@ const destinationsData = [
         "link": "https://www.gotokyo.org/en/",
         "notes": "Hope to visit during cherry blossom season",
         "detailedNotes": "Tokyo is Japan's busy capital that mixes the ultramodern and the traditional. Want to experience the cherry blossom season, visit Senso-ji Temple, explore the Shibuya Crossing, and enjoy authentic Japanese cuisine. Hoping to take a day trip to Mt. Fuji and experience a traditional onsen. Need to learn some basic Japanese phrases before the trip.",
-        "coordinates": {
-            "lat": 35.6762,
-            "lng": 139.6503
-        }
+        "coordinates": { "lat": 35.6762, "lng": 139.6503 }
     },
     {
         "id": "paris",
         "name": "Paris",
         "country": "France",
+        "continent": "Europe",
         "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34",
         "status": "visited",
         "year": 2021,
@@ -114,15 +103,13 @@ const destinationsData = [
         "link": "https://en.parisinfo.com/",
         "notes": "The Louvre was magnificent, loved the cafes",
         "detailedNotes": "Paris is France's capital and a global center for art, fashion, gastronomy, and culture. The Louvre Museum was a highlight - spent an entire day there but still didn't see everything. Climbed the Eiffel Tower at sunset for breathtaking views. Notre-Dame Cathedral was under renovation after the fire. Enjoyed amazing pastries and coffee at local cafes. The metro system was very efficient for getting around.",
-        "coordinates": {
-            "lat": 48.8566,
-            "lng": 2.3522
-        }
+        "coordinates": { "lat": 48.8566, "lng": 2.3522 }
     },
     {
         "id": "barcelona",
         "name": "Barcelona",
         "country": "Spain",
+        "continent": "Europe",
         "image": "https://images.unsplash.com/photo-1583422409516-2895a77efded",
         "status": "visited",
         "year": 2023,
@@ -131,15 +118,13 @@ const destinationsData = [
         "link": "https://www.barcelonaturisme.com/wv3/en/",
         "notes": "Sagrada Familia was breathtaking, great beaches",
         "detailedNotes": "Barcelona is the cosmopolitan capital of Spain's Catalonia region. Gaudi's architecture was incredible, especially Sagrada Familia and Park Güell. La Rambla was lively but very touristy. The beaches were beautiful and clean. Enjoyed the tapas and sangria at local restaurants. The Gothic Quarter with its narrow medieval streets was perfect for wandering. Used the T10 ticket for public transportation which was very convenient.",
-        "coordinates": {
-            "lat": 41.3851,
-            "lng": 2.1734
-        }
+        "coordinates": { "lat": 41.3851, "lng": 2.1734 }
     },
     {
         "id": "hong_kong",
         "name": "Hong Kong",
         "country": "China",
+        "continent": "Asia",
         "image": "https://images.unsplash.com/photo-1536599018102-9f803c140fc1",
         "status": "wishlist",
         "year": 2026,
@@ -148,15 +133,13 @@ const destinationsData = [
         "link": "https://www.discoverhongkong.com/",
         "notes": "Want to see Victoria Peak and try dim sum",
         "detailedNotes": "Hong Kong is a Special Administrative Region of China. Looking forward to seeing the skyline from Victoria Peak, riding the Star Ferry, exploring the night markets, and trying authentic dim sum. Want to visit Hong Kong Disneyland and take a day trip to Macau. Need to research the best neighborhoods to stay in and transportation options from the airport.",
-        "coordinates": {
-            "lat": 22.3193,
-            "lng": 114.1694
-        }
+        "coordinates": { "lat": 22.3193, "lng": 114.1694 }
     },
     {
         "id": "rome",
         "name": "Rome",
         "country": "Italy",
+        "continent": "Europe",
         "image": "https://images.unsplash.com/photo-1552832230-c0197dd311b5",
         "status": "visited",
         "year": 2022,
@@ -165,15 +148,13 @@ const destinationsData = [
         "link": "https://www.turismoroma.it/en",
         "notes": "Colosseum was incredible, ate so much pasta",
         "detailedNotes": "Rome is Italy's capital city and was once center of the Roman Empire. The Colosseum, Roman Forum, and Pantheon were incredible - felt like stepping back in time. Vatican City and the Sistine Chapel were crowded but worth it. Threw a coin in the Trevi Fountain to ensure a return visit. The food was amazing - had the best pasta and gelato of my life. Walking was the best way to explore the city, though the metro was useful for longer distances.",
-        "coordinates": {
-            "lat": 41.9028,
-            "lng": 12.4964
-        }
+        "coordinates": { "lat": 41.9028, "lng": 12.4964 }
     },
     {
         "id": "cairo",
         "name": "Cairo",
         "country": "Egypt",
+        "continent": "Africa",
         "image": "https://images.unsplash.com/photo-1572252009286-268acec5ca0a",
         "status": "wishlist",
         "year": 2026,
@@ -182,15 +163,13 @@ const destinationsData = [
         "link": "https://egypt.travel/en",
         "notes": "Really want to see the pyramids and Nile",
         "detailedNotes": "Cairo is the capital of Egypt and one of the largest cities in Africa. The main reason to visit is to see the Pyramids of Giza and the Sphinx. Want to explore the Egyptian Museum, Khan el-Khalili bazaar, and take a cruise on the Nile River. Considering adding on a visit to Luxor and the Valley of the Kings. Need to research the best time to visit to avoid extreme heat and learn about local customs and dress code.",
-        "coordinates": {
-            "lat": 30.0444,
-            "lng": 31.2357
-        }
+        "coordinates": { "lat": 30.0444, "lng": 31.2357 }
     },
     {
         "id": "sydney",
         "name": "Sydney",
         "country": "Australia",
+        "continent": "Oceania",
         "image": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9",
         "status": "wishlist",
         "year": 2027,
@@ -199,9 +178,231 @@ const destinationsData = [
         "link": "https://www.sydney.com/",
         "notes": "Opera House and koalas are on my bucket list",
         "detailedNotes": "Sydney is the capital city of the state of New South Wales, and the most populous city in Australia. The Sydney Opera House and Harbour Bridge are must-see attractions. Looking forward to visiting Bondi Beach, taking the ferry to Manly, and seeing koalas and kangaroos at Taronga Zoo. Planning to do the coastal walk from Bondi to Coogee. Would like to take a day trip to the Blue Mountains. Need to prepare for the long flight and potential jet lag.",
-        "coordinates": {
-            "lat": -33.8688,
-            "lng": 151.2093
-        }
+        "coordinates": { "lat": -33.8688, "lng": 151.2093 }
+    },
+    {
+        "id": "caracas",
+        "name": "Caracas",
+        "country": "Venezuela",
+        "continent": "South America",
+        "image": "https://source.unsplash.com/800x600/?Caracas,Venezuela",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Caracas+Venezuela",
+        "notes": "Visited Caracas, a fascinating city.",
+        "detailedNotes": "A memorable trip to Caracas, Venezuela. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 10.4806, "lng": -66.9036 }
+    },
+    {
+        "id": "madrid",
+        "name": "Madrid",
+        "country": "Spain",
+        "continent": "Europe",
+        "image": "https://source.unsplash.com/800x600/?Madrid,Spain",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Madrid+Spain",
+        "notes": "Visited Madrid, a fascinating city.",
+        "detailedNotes": "A memorable trip to Madrid, Spain. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 40.4168, "lng": -3.7038 }
+    },
+    {
+        "id": "erbil",
+        "name": "Erbil",
+        "country": "Iraq",
+        "continent": "Asia",
+        "image": "https://source.unsplash.com/800x600/?Erbil,Iraq",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Erbil+Iraq",
+        "notes": "Visited Erbil, a fascinating city.",
+        "detailedNotes": "A memorable trip to Erbil, Iraq. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 36.1911, "lng": 44.0094 }
+    },
+    {
+        "id": "beirut",
+        "name": "Beirut",
+        "country": "Lebanon",
+        "continent": "Asia",
+        "image": "https://source.unsplash.com/800x600/?Beirut,Lebanon",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Beirut+Lebanon",
+        "notes": "Visited Beirut, a fascinating city.",
+        "detailedNotes": "A memorable trip to Beirut, Lebanon. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 33.8938, "lng": 35.5018 }
+    },
+    {
+        "id": "baku",
+        "name": "Baku",
+        "country": "Azerbaijan",
+        "continent": "Asia", 
+        "image": "https://source.unsplash.com/800x600/?Baku,Azerbaijan",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Baku+Azerbaijan",
+        "notes": "Visited Baku, a fascinating city.",
+        "detailedNotes": "A memorable trip to Baku, Azerbaijan. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 40.4093, "lng": 49.8671 }
+    },
+    {
+        "id": "amman",
+        "name": "Amman",
+        "country": "Jordan",
+        "continent": "Asia",
+        "image": "https://source.unsplash.com/800x600/?Amman,Jordan",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Amman+Jordan",
+        "notes": "Visited Amman, a fascinating city.",
+        "detailedNotes": "A memorable trip to Amman, Jordan. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 31.9632, "lng": 35.9304 }
+    },
+    {
+        "id": "hannover",
+        "name": "Hannover",
+        "country": "Germany",
+        "continent": "Europe",
+        "image": "https://source.unsplash.com/800x600/?Hannover,Germany",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Hannover+Germany",
+        "notes": "Visited Hannover, a fascinating city.",
+        "detailedNotes": "A memorable trip to Hannover, Germany. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 52.3759, "lng": 9.7320 }
+    },
+    {
+        "id": "cologne",
+        "name": "Cologne",
+        "country": "Germany",
+        "continent": "Europe",
+        "image": "https://source.unsplash.com/800x600/?Cologne,Germany",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Cologne+Germany",
+        "notes": "Visited Cologne, a fascinating city.",
+        "detailedNotes": "A memorable trip to Cologne, Germany. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 50.9375, "lng": 6.9603 }
+    },
+    {
+        "id": "new_delhi",
+        "name": "New Delhi",
+        "country": "India",
+        "continent": "Asia",
+        "image": "https://source.unsplash.com/800x600/?New+Delhi,India",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+New+Delhi+India",
+        "notes": "Visited New Delhi, a fascinating city.",
+        "detailedNotes": "A memorable trip to New Delhi, India. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 28.6139, "lng": 77.2090 }
+    },
+    {
+        "id": "amritsar",
+        "name": "Amritsar",
+        "country": "India",
+        "continent": "Asia",
+        "image": "https://source.unsplash.com/800x600/?Amritsar,India",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Amritsar+India",
+        "notes": "Visited Amritsar, a fascinating city.",
+        "detailedNotes": "A memorable trip to Amritsar, India. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 31.6340, "lng": 74.8723 }
+    },
+    {
+        "id": "abuja",
+        "name": "Abuja",
+        "country": "Nigeria",
+        "continent": "Africa",
+        "image": "https://images.unsplash.com/photo-1721642472312-cd30e9bd7cac",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Abuja+Nigeria",
+        "notes": "Visited Abuja, a fascinating city.",
+        "detailedNotes": "A memorable trip to Abuja, Nigeria. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 9.0765, "lng": 7.3986 }
+    },
+    {
+        "id": "lahore",
+        "name": "Lahore",
+        "country": "Pakistan",
+        "continent": "Asia",
+        "image": "https://source.unsplash.com/800x600/?Lahore,Pakistan",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Lahore+Pakistan",
+        "notes": "Visited Lahore, a fascinating city.",
+        "detailedNotes": "A memorable trip to Lahore, Pakistan. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 31.5204, "lng": 74.3587 }
+    },
+    {
+        "id": "bangalore",
+        "name": "Bangalore",
+        "country": "India",
+        "continent": "Asia",
+        "image": "https://images.unsplash.com/photo-1698332137428-3c4296198e8f",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Bangalore+India",
+        "notes": "Visited Bangalore, a fascinating city.",
+        "detailedNotes": "A memorable trip to Bangalore, India. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 12.9716, "lng": 77.5946 }
+    },
+    {
+        "id": "munich",
+        "name": "Munich",
+        "country": "Germany",
+        "continent": "Europe",
+        "image": "https://source.unsplash.com/800x600/?Munich,Germany",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Munich+Germany",
+        "notes": "Visited Munich, a fascinating city.",
+        "detailedNotes": "A memorable trip to Munich, Germany. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 48.1351, "lng": 11.5820 }
+    },
+    {
+        "id": "karachi",
+        "name": "Karachi",
+        "country": "Pakistan",
+        "continent": "Asia",
+        "image": "https://source.unsplash.com/800x600/?Karachi,Pakistan",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Karachi+Pakistan",
+        "notes": "Visited Karachi, a fascinating city.",
+        "detailedNotes": "A memorable trip to Karachi, Pakistan. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 24.8607, "lng": 67.0011 }
     }
   ];

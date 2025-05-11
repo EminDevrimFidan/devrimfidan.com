@@ -1,74 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Trips and Plans</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Important: Using 'class' strategy
+            theme: {
+                extend: {
+                    colors: {
+                        // Using your chosen colors
+                        'status-visited': '#6a994e',
+                        'status-planned': '#7b2cbf',
+                        'status-wishlist': '#ff006e',
+                        'status-active': '#277da1', 
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Leaflet specific styles that need to be kept */
+        .custom-marker { 
+            background: transparent;
+            border: none;
+        }
+        .custom-popup .leaflet-popup-content-wrapper {
+            border-radius: 0.5rem; /* 8px */
+            padding: 0;
+            overflow: hidden;
+        }
+        .custom-popup .leaflet-popup-content {
+            margin: 0;
+            width: 350px !important;
+        }
+        /* Hide scrollbar but allow scrolling - applied to filter bar */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Styling for select dropdown arrows */
+        select.filter-control {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem; 
+        }
+        .dark select.filter-control {
+             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%239CA3AF' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <div class="logo">
+<body class="flex flex-col h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <header class="flex items-center px-4 py-1 shadow-sm bg-white dark:bg-gray-800 z-20">
+        <div class="text-2xl text-blue-500 mr-3 sm:mr-4"> 
             <i class="fas fa-globe-americas"></i>
         </div>
-        <div class="site-title">My Trips and Plans</div>
-        <button class="dark-mode-toggle">
-            <i class="fas fa-moon"></i>
-        </button>
+        <a href="index.html" class="text-lg font-bold text-gray-700 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+            My Trips and Plans
+        </a>
+
+        <div class="ml-auto flex items-center space-x-3 sm:space-x-4">
+            <a href="stats.html" class="text-sm text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Stats</a>
+
+            <button id="dark-mode-toggle" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">
+                <i class="fas fa-moon text-lg block dark:hidden"></i>
+                <i class="fas fa-sun text-lg hidden dark:block"></i>
+            </button>
+        </div>
     </header>
     
-    <div class="content">
-        <div class="sidebar">
-            <div class="filter-bar">
-                <button class="filter-button" id="reset-filters">
-                    <i class="fas fa-sync-alt"></i>
-                    <span></span>
+    <div class="flex flex-1 overflow-hidden">
+        <div class="w-full md:w-80 lg:w-[26rem] border-r border-gray-200 dark:border-gray-700 flex flex-col z-10 bg-white dark:bg-gray-800">
+            <div class="p-3 border-b border-gray-200 dark:border-gray-700 flex space-x-2 overflow-x-auto hide-scrollbar">
+                <button id="reset-filters" class="hidden px-3 py-1.5 border border-gray-300 dark:border-gray-600 rounded-md items-center text-sm bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 flex-shrink-0">
+                    <i class="fas fa-sync-alt mr-1.5"></i>
+                    <span class="hidden sm:inline">Reset</span>
                 </button>
-                <select class="filter-dropdown" id="status-filter">
+                <select id="status-filter" class="filter-control px-3 py-1.5 border border-gray-300 dark:border-gray-600 rounded-md text-sm bg-white dark:bg-gray-700 appearance-none text-gray-700 dark:text-gray-200 flex-shrink-0">
                     <option value="all">Status</option>
                     <option value="visited">Visited</option>
                     <option value="planned">Planned</option>
                     <option value="wishlist">Wishlist</option>
                 </select>
-                <select class="filter-dropdown" id="country-filter">
+                <select id="country-filter" class="filter-control px-3 py-1.5 border border-gray-300 dark:border-gray-600 rounded-md text-sm bg-white dark:bg-gray-700 appearance-none text-gray-700 dark:text-gray-200 flex-shrink-0">
                     <option value="all">Country</option>
-                    <!-- Countries will be populated by JavaScript -->
                 </select>
-                <select class="filter-dropdown" id="year-filter">
+                <select id="year-filter" class="filter-control px-3 py-1.5 border border-gray-300 dark:border-gray-600 rounded-md text-sm bg-white dark:bg-gray-700 appearance-none text-gray-700 dark:text-gray-200 flex-shrink-0">
                     <option value="all">Year</option>
-                    <!-- Years will be populated by JavaScript -->
                 </select>
             </div>
-            <ul class="destination-list" id="destination-list">
-                <!-- Destinations will be populated by JavaScript -->
+            <ul id="destination-list" class="overflow-y-auto flex-1 p-1">
+                <div id="loading-destinations" class="flex justify-center items-center h-full text-gray-500 dark:text-gray-400">
+                    <div class="text-center p-6">
+                        <i class="fas fa-spinner fa-spin text-3xl mb-4"></i>
+                        <p>Loading destinations...</p>
+                    </div>
+                </div>
             </ul>
         </div>
         
-        <div class="map-container">
-            <div id="map"></div>
-            <div class="map-controls">
-                <button class="map-btn" id="zoom-in">
+        <div class="flex-1 relative"> 
+            <div id="map" class="w-full h-full"></div>
+            <div class="absolute bottom-4 right-4 md:bottom-6 md:right-6 flex flex-col space-y-2 z-10">
+                <button id="zoom-in" class="w-10 h-10 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md shadow-md hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300">
                     <i class="fas fa-plus"></i>
                 </button>
-                <button class="map-btn" id="zoom-out">
+                <button id="zoom-out" class="w-10 h-10 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md shadow-md hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300">
                     <i class="fas fa-minus"></i>
                 </button>
-                <button class="map-btn" id="center-map">
+                <button id="center-map" class="w-10 h-10 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md shadow-md hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300">
                     <i class="fas fa-compress-arrows-alt"></i>
                 </button>
             </div>
         </div>
     </div>
     
-    <footer>
+    <footer class="px-4 py-2 border-t border-gray-200 dark:border-gray-700 flex justify-between text-xs text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 z-20">
         <div>© 2025 My Trips and Plans</div>
         <div>This is a fun project!</div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
-    <script src="data.json"></script>
+    <script src="data.json"></script> 
     <script src="script.js"></script>
 </body>
 </html>

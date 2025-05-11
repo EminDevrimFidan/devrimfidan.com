@@ -1,310 +1,424 @@
-// Initialize variables
-let map;
-let markers = [];
-let destinations = [...destinationsData];
-let activeDestination = null;
-let statusFilter = "planned"; // Start with planned trips by default
-let yearFilter = "all";
-let countryFilter = "all";
+/**
+ * My Trips and Plans - script.js
+ * Handles the dynamic rendering of destinations, map interactions, filtering, and dark mode.
+ * Destinations are now sorted by default:
+ * 1. Status (Planned, then Wishlist, then Visited)
+ * 2. Year (Descending, newest first) within each status group
+ * 3. Name (Alphabetically) as a final tie-breaker.
+ * Thumbnail images in the sidebar are 8rem wide and 6rem tall.
+ */
 
-// Define custom marker icons based on status
+// Global variables
+let map; // Leaflet map instance
+let markers = []; // Array to store map markers
+let destinations = []; // Array to store all destination data, populated from data.json
+let activeDestination = null; // Currently selected destination object
+
+// Filter state variables
+let statusFilter = "all"; // Default filter status
+let yearFilter = "all";   // Default filter year
+let countryFilter = "all"; // Default filter country
+
+// Tailwind custom colors, matching the 'colors' object in tailwind.config in HTML
+const statusColors = {
+    visited: 'status-visited',
+    planned: 'status-planned',
+    wishlist: 'status-wishlist',
+    active: 'status-active',
+};
+
+// Custom marker icons using Tailwind classes
 const markerIcons = {
     visited: L.divIcon({
         className: 'custom-marker',
-        html: '<div style="background-color: #34A853; width: 12px; height: 12px; border-radius: 50%; border: 2px solid white; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></div>',
+        html: `<div class="w-3 h-3 rounded-full border-2 border-white shadow-md bg-${statusColors.visited}"></div>`,
         iconSize: [12, 12],
         iconAnchor: [6, 6]
     }),
     planned: L.divIcon({
         className: 'custom-marker',
-        html: '<div style="background-color: #FBBC05; width: 12px; height: 12px; border-radius: 50%; border: 2px solid white; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></div>',
+        html: `<div class="w-3 h-3 rounded-full border-2 border-white shadow-md bg-${statusColors.planned}"></div>`,
         iconSize: [12, 12],
         iconAnchor: [6, 6]
     }),
     wishlist: L.divIcon({
         className: 'custom-marker',
-        html: '<div style="background-color: #EA4335; width: 12px; height: 12px; border-radius: 50%; border: 2px solid white; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></div>',
+        html: `<div class="w-3 h-3 rounded-full border-2 border-white shadow-md bg-${statusColors.wishlist}"></div>`,
         iconSize: [12, 12],
         iconAnchor: [6, 6]
     }),
     active: L.divIcon({
         className: 'custom-marker',
-        html: '<div style="background-color: #4285F4; width: 18px; height: 18px; border-radius: 50%; border: 3px solid white; box-shadow: 0 1px 3px rgba(0,0,0,0.5);"></div>',
+        html: `<div class="w-[18px] h-[18px] rounded-full border-[3px] border-white shadow-lg bg-${statusColors.active}"></div>`,
         iconSize: [18, 18],
         iconAnchor: [9, 9]
     })
 };
 
-// Initialize map
-function initMap() {
-    // Create map centered at the world view
-    map = L.map('map').setView([20, 0], 2);
-    
-    // Add tile layer (OpenStreetMap)
+/**
+ * Custom sort function to order destinations:
+ * 1. By status: Planned, then Wishlist, then Visited.
+ * 2. By year: Descending (newest first) within each status group.
+ * 3. By name: Alphabetically, as a final tie-breaker.
+ * @param {Array<Object>} destinationsArray The array of destination objects to sort.
+ */
+function sortDestinationsByDefault(destinationsArray) {
+    const statusOrder = {
+        'planned': 1,
+        'wishlist': 2,
+        'visited': 3
+    };
+
+    destinationsArray.sort((a, b) => {
+        // Primary sort: by status
+        const orderA = statusOrder[a.status] || 4; // Assign a high number for unknown/undefined statuses
+        const orderB = statusOrder[b.status] || 4;
+        
+        if (orderA !== orderB) {
+            return orderA - orderB;
+        }
+
+        // Secondary sort: by year (descending)
+        // Handle cases where year might be null or undefined by treating them as older
+        const yearA = a.year == null ? -Infinity : a.year; // Treat null/undefined years as very old
+        const yearB = b.year == null ? -Infinity : b.year;
+
+        if (yearA !== yearB) {
+            return yearB - yearA; // Descending order for year
+        }
+
+        // Tertiary sort: by name (alphabetically)
+        if (a.name && b.name) {
+            return a.name.localeCompare(b.name);
+        }
+        return 0; // Should not be reached if names are always present
+    });
+}
+
+
+/**
+ * Initializes the application: loads data, sorts it, sets up the map, populates filters, and renders initial view.
+ */
+function initializeApp() {
+    const loadingElement = document.getElementById('loading-destinations');
+    const listElement = document.getElementById('destination-list');
+
+    if (typeof destinationsData === 'undefined' || !Array.isArray(destinationsData)) {
+        console.error("ERROR: destinationsData is not defined or not an array. Make sure data.json is loaded correctly.");
+        if (loadingElement) {
+            loadingElement.innerHTML = `<div class="text-center p-6"><i class="fas fa-exclamation-triangle text-3xl mb-4 text-red-500"></i><p>Error: Could not load trip data.</p></div>`;
+        } else if (listElement) {
+            listElement.innerHTML = `<li class="p-4 text-center text-red-500 dark:text-red-400">Error: Could not load trip data.</li>`;
+        }
+        return;
+    }
+
+    destinations = [...destinationsData]; // Copy data
+
+    // MODIFIED: Sort the destinations array by the desired default order (status, then year desc)
+    sortDestinationsByDefault(destinations);
+
+    if (loadingElement) loadingElement.style.display = 'none';
+
+    map = L.map('map', { preferCanvas: true }).setView([20, 0], 2);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        maxZoom: 19
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" class="text-blue-600 hover:underline">OpenStreetMap</a> contributors',
+        maxZoom: 18,
+        minZoom: 2
     }).addTo(map);
     
-    // Populate the filters
     populateYearFilter();
     populateCountryFilter();
     
-    // Apply initial filters - starting with planned trips
-    applyFilters();
-    
-    // Set up map control event listeners
-    document.getElementById('zoom-in').addEventListener('click', () => {
-        map.setZoom(map.getZoom() + 1);
-    });
-    
-    document.getElementById('zoom-out').addEventListener('click', () => {
-        map.setZoom(map.getZoom() - 1);
-    });
-    
-    document.getElementById('center-map').addEventListener('click', () => {
-        map.setView([20, 0], 2);
-    });
-
-    // Set initial filter to "planned" in the dropdown
     document.getElementById('status-filter').value = statusFilter;
+    document.getElementById('year-filter').value = yearFilter;
+    document.getElementById('country-filter').value = countryFilter;
+
+    applyFilters(); 
+    
+    document.getElementById('zoom-in').addEventListener('click', () => map.zoomIn());
+    document.getElementById('zoom-out').addEventListener('click', () => map.zoomOut());
+    document.getElementById('center-map').addEventListener('click', () => map.setView([20, 0], 2));
 }
 
+/**
+ * Creates and adds Leaflet markers to the map for the given destinations.
+ * @param {Array<Object>} destinationsToMark Array of destination objects.
+ */
 function createMarkers(destinationsToMark) {
-    // Clear existing markers
     markers.forEach(marker => {
-        if (map.hasLayer(marker.element)) {
-            map.removeLayer(marker.element);
-        }
+        if (map.hasLayer(marker.element)) map.removeLayer(marker.element);
     });
     markers = [];
     
-    // Create new markers
     destinationsToMark.forEach(destination => {
-        const markerIcon = markerIcons[destination.status];
+        const icon = (activeDestination && activeDestination.id === destination.id) 
+            ? markerIcons.active 
+            : markerIcons[destination.status] || markerIcons.wishlist;
         
-        const marker = L.marker(
-            [destination.coordinates.lat, destination.coordinates.lng], 
-            { icon: markerIcon }
-        ).addTo(map);
+        const lat = parseFloat(destination.coordinates.lat);
+        const lng = parseFloat(destination.coordinates.lng);
+
+        if (isNaN(lat) || isNaN(lng)) {
+            console.warn(`Skipping marker for ${destination.name} (ID: ${destination.id}) due to invalid coordinates:`, destination.coordinates);
+            return; 
+        }
+
+        const marker = L.marker([lat, lng], { icon: icon }).addTo(map);
         
-        // Create enhanced popup content with image and detailed notes
+        const statusColorClass = statusColors[destination.status] || statusColors.wishlist;
+        const bgColorClass = `bg-${statusColorClass}`;
+
         const popupContent = `
-            <div class="popup-content">
-                <img src="${destination.image}" alt="${destination.name}" class="popup-image" onerror="this.src='https://placehold.co/400x300'">
-                <div class="popup-header">
-                    <div class="popup-name">${destination.name}, ${destination.country}</div>
-                    <div class="popup-year">${destination.year}</div>
+            <div class="popup-content bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-lg overflow-hidden">
+                <img src="${destination.image}" alt="${destination.name || 'Destination Image'}" class="w-full h-44 object-cover" onerror="this.style.display='none'; console.warn('Image failed to load for ${destination.name}: ${destination.image}'); const placeholder = document.createElement('div'); placeholder.className='w-full h-44 bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-500'; placeholder.innerText='Image not found'; this.parentNode.insertBefore(placeholder, this);">
+                <div class="p-3">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-lg font-semibold truncate" title="${destination.name || 'N/A'}, ${destination.country || 'N/A'}">${destination.name || 'N/A'}, ${destination.country || 'N/A'}</h3>
+                        ${destination.year ? `<span class="text-xs font-medium ${bgColorClass} text-white px-2 py-0.5 rounded-full ml-2 flex-shrink-0">${destination.year}</span>` : ''}
+                    </div>
+                    <div class="flex items-center text-xs text-gray-600 dark:text-gray-400 mb-1">
+                        <span class="capitalize inline-block ${bgColorClass} text-white px-2 py-0.5 rounded-full text-xs mr-2">${destination.status}</span>
+                        <i class="fas ${destination.transport === 'flight' ? 'fa-plane' : (destination.transport === 'train' ? 'fa-train' : 'fa-car')} mr-1 text-gray-500 dark:text-gray-400"></i> ${destination.duration}
+                    </div>
+                    <p class="text-xs text-gray-600 dark:text-gray-400 italic mb-2 line-clamp-2" title="${destination.notes || ''}">${destination.notes || ''}</p>
+                    <p class="text-sm leading-relaxed mb-2 max-h-20 overflow-y-auto">${destination.detailedNotes || ''}</p>
+                    ${destination.link ? `<div class="text-right mt-2">
+                        <a href="${destination.link}" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-500 dark:text-blue-400 hover:underline hover:text-blue-600 dark:hover:text-blue-300 inline-flex items-center">
+                            Official Website <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                        </a>
+                    </div>` : ''}
                 </div>
-                <div class="popup-details">
-                    <span class="status-${destination.status}">${destination.status.charAt(0).toUpperCase() + destination.status.slice(1)}</span>
-                    <span><i class="fas ${destination.transport === 'flight' ? 'fa-plane' : 'fa-train'}"></i> ${destination.duration}</span>
-                </div>
-                <div class="popup-notes">${destination.notes || ''}</div>
-                <div class="popup-detailed-notes">${destination.detailedNotes || ''}</div>
-                ${destination.link ? `<div class="popup-link"><a href="${destination.link}" target="_blank">Official Website <i class="fas fa-external-link-alt"></i></a></div>` : ''}
             </div>
         `;
         
-        // Bind popup to marker with increased width
         marker.bindPopup(popupContent, {
             className: 'custom-popup',
             closeButton: true,
-            maxWidth: 350
+            minWidth: 320,
+            maxWidth: 350 
         });
         
-        // Add click event to marker
-        marker.on('click', () => {
-            selectDestination(destination.id);
-        });
-        
-        // Store marker reference
-        markers.push({
-            element: marker,
-            destinationId: destination.id
-        });
+        marker.on('click', () => selectDestination(destination.id));
+        markers.push({ element: marker, destinationId: destination.id, status: destination.status });
     });
 }
 
+/**
+ * Renders the list of destinations in the sidebar.
+ * @param {Array<Object>} destinationsToRender Array of destination objects.
+ */
 function renderDestinations(destinationsToRender) {
-    const list = document.getElementById('destination-list');
-    list.innerHTML = '';
+    const listElement = document.getElementById('destination-list');
+    listElement.innerHTML = ''; 
     
+    const loadingElement = document.getElementById('loading-destinations');
+    if (loadingElement && loadingElement.style.display !== 'none') {
+        loadingElement.style.display = 'none';
+    }
+
+    if (destinationsToRender.length === 0) {
+        listElement.innerHTML = `<li class="p-4 text-center text-gray-500 dark:text-gray-400">No destinations match your filter criteria.</li>`;
+        return;
+    }
+
     destinationsToRender.forEach(destination => {
         const item = document.createElement('li');
-        item.className = 'destination-item';
-        if (activeDestination && activeDestination.id === destination.id) {
-            item.classList.add('active');
-        }
+        const isActive = activeDestination && activeDestination.id === destination.id;
+        const statusColorName = statusColors[destination.status] || statusColors.wishlist; 
+        
+        item.className = `
+            destination-item p-3 border-b border-gray-200 dark:border-gray-700 cursor-pointer 
+            hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150
+            ${isActive ? `bg-blue-50 dark:bg-blue-900/50 border-l-4 border-l-${statusColors.active}` : `border-l-4 border-l-${statusColorName}`}
+        `;
         item.dataset.id = destination.id;
         
-        let statusClass = '';
-        switch(destination.status) {
-            case 'visited':
-                statusClass = 'status-visited';
-                break;
-            case 'planned':
-                statusClass = 'status-planned';
-                break;
-            case 'wishlist':
-                statusClass = 'status-wishlist';
-                break;
-        }
-
-        // Create destination name with or without link
-        let destinationNameHtml = destination.link 
-            ? `<div class="destination-name"><a href="${destination.link}" target="_blank">${destination.name}</a></div>`
-            : `<div class="destination-name">${destination.name}</div>`;
+        const destinationNameText = destination.name || 'Unnamed Destination';
         
-        // Combine both versions: include image and notes
         item.innerHTML = `
-            <img src="${destination.image}" alt="${destination.name}" class="destination-image" onerror="this.src='https://placehold.co/400x300'">
-            <div class="destination-header">
-                ${destinationNameHtml}
-                <div class="destination-transport">
-                    <i class="fas ${destination.transport === 'flight' ? 'fa-plane' : 'fa-train'}"></i>
+            <div class="flex items-start space-x-3">
+                <img src="${destination.image}" alt="${destination.name || 'Destination'}" class="w-32 h-24 object-cover rounded-md flex-shrink-0" onerror="this.style.display='none'; console.warn('Image failed to load for list item ${destination.name}: ${destination.image}'); const placeholder = document.createElement('div'); placeholder.className='w-32 h-24 bg-gray-200 dark:bg-gray-700 rounded-md flex items-center justify-center text-gray-400 text-xs'; placeholder.innerText='No Img'; this.parentNode.insertBefore(placeholder, this);">
+                <div class="flex-grow min-w-0">
+                    <div class="flex justify-between items-start mb-1">
+                        <h3 class="text-base font-semibold text-gray-800 dark:text-gray-100 truncate" title="${destinationNameText}">${destinationNameText}</h3>
+                        <span class="text-xs font-medium bg-${statusColorName} text-white px-2 py-0.5 rounded-full capitalize flex-shrink-0">${destination.status}</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs text-gray-500 dark:text-gray-400 mb-1">
+                        <span class="truncate" title="${destination.country || 'N/A'}">${destination.country || 'N/A'}</span>
+                        ${destination.year ? `<span class="ml-2 flex-shrink-0 px-1.5 py-0.5 bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded text-xs font-medium">${destination.year}</span>` : ''}
+                    </div>
+                    <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">
+                        <i class="fas ${destination.transport === 'flight' ? 'fa-plane' : (destination.transport === 'train' ? 'fa-train' : 'fa-car')} mr-1 text-gray-500 dark:text-gray-400"></i> ${destination.duration || 'N/A'}
+                    </p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2" title="${destination.notes || ''}">${destination.notes || ''}</p>
                 </div>
             </div>
-            <div class="destination-details">
-                <span class="${statusClass}">${destination.status.charAt(0).toUpperCase() + destination.status.slice(1)}</span>
-                <span>${destination.year}</span>
-                <span>${destination.country}</span>
-                <span>${destination.duration}</span>
-            </div>
-            <div class="destination-notes-preview">${destination.notes || ''}</div>
         `;
         
-        item.addEventListener('click', () => {
-            selectDestination(destination.id);
-        });
-        
-        list.appendChild(item);
+        item.addEventListener('click', () => selectDestination(destination.id));
+        listElement.appendChild(item);
     });
 }
 
+/**
+ * Populates the year filter dropdown.
+ */
 function populateYearFilter() {
-    const yearFilter = document.getElementById('year-filter');
-    
-    // Get unique years from destinations
-    const years = [...new Set(destinations.map(d => d.year))].sort();
-    
-    // Add options for each year
+    const yearFilterEl = document.getElementById('year-filter');
+    while (yearFilterEl.options.length > 1) yearFilterEl.remove(1);
+    const years = [...new Set(destinations.map(d => d.year).filter(year => year != null))].sort((a, b) => b - a);
     years.forEach(year => {
         const option = document.createElement('option');
-        option.value = year;
-        option.textContent = year;
-        yearFilter.appendChild(option);
+        option.value = year; option.textContent = year;
+        yearFilterEl.appendChild(option);
     });
 }
 
+/**
+ * Populates the country filter dropdown.
+ */
 function populateCountryFilter() {
-    const countryFilter = document.getElementById('country-filter');
-    
-    // Get unique countries from destinations
-    const countries = [...new Set(destinations.map(d => d.country))].sort();
-    
-    // Clear existing options except the "All countries" option
-    while (countryFilter.options.length > 1) {
-        countryFilter.remove(1);
-    }
-    
-    // Add options for each country
+    const countryFilterEl = document.getElementById('country-filter');
+    while (countryFilterEl.options.length > 1) countryFilterEl.remove(1);
+    const countries = [...new Set(destinations.map(d => d.country).filter(country => country && country.trim() !== ''))].sort();
     countries.forEach(country => {
         const option = document.createElement('option');
-        option.value = country;
-        option.textContent = country;
-        countryFilter.appendChild(option);
+        option.value = country; option.textContent = country;
+        countryFilterEl.appendChild(option);
     });
 }
 
+/**
+ * Applies filters and re-renders.
+ */
 function applyFilters() {
-    // Apply all filters
-    let filteredDestinations = destinations;
+    let filteredDestinations = [...destinations]; 
     
     if (statusFilter !== 'all') {
         filteredDestinations = filteredDestinations.filter(d => d.status === statusFilter);
     }
-    
     if (yearFilter !== 'all') {
-        filteredDestinations = filteredDestinations.filter(d => d.year.toString() === yearFilter);
+        filteredDestinations = filteredDestinations.filter(d => d.year && d.year.toString() === yearFilter);
     }
-    
     if (countryFilter !== 'all') {
         filteredDestinations = filteredDestinations.filter(d => d.country === countryFilter);
     }
     
-    // Update the UI
+    // If filters are applied (not all 'all'), re-sort the filtered subset
+    // This ensures that if, for example, only 'visited' is selected,
+    // those 'visited' items are then sorted by year descending.
+    // If all filters are 'all', the original default sort is maintained.
+    if (statusFilter !== 'all' || yearFilter !== 'all' || countryFilter !== 'all') {
+        // We can re-apply the full sort logic, or a more targeted one.
+        // For simplicity and consistency, re-applying the full sort logic on the filtered subset is fine.
+        // However, the primary sort by status might be less relevant if a specific status is already filtered.
+        // So, if a status is selected, we primarily sort by year desc within that status.
+        if (statusFilter !== 'all') {
+            filteredDestinations.sort((a, b) => {
+                const yearA = a.year == null ? -Infinity : a.year;
+                const yearB = b.year == null ? -Infinity : b.year;
+                if (yearA !== yearB) return yearB - yearA;
+                if (a.name && b.name) return a.name.localeCompare(b.name);
+                return 0;
+            });
+        } else {
+            // If status is 'all' but other filters are active, apply the default multi-level sort
+            sortDestinationsByDefault(filteredDestinations);
+        }
+    }
+    // If no filters are active (all are 'all'), 'filteredDestinations' is already a copy of the
+    // default-sorted 'destinations' array, so no re-sort is needed here.
+
     renderDestinations(filteredDestinations);
-    createMarkers(filteredDestinations);
+    createMarkers(filteredDestinations); 
     
-    // Reset active destination if it's filtered out
     if (activeDestination && !filteredDestinations.some(d => d.id === activeDestination.id)) {
-        activeDestination = null;
+        const activeItemInDOM = document.querySelector(`.destination-item[data-id="${activeDestination.id}"]`);
+        if (activeItemInDOM) {
+            const destData = destinations.find(d => d.id === activeDestination.id);
+            if(destData) {
+                 activeItemInDOM.classList.remove(`bg-blue-50`, `dark:bg-blue-900/50`, `border-l-${statusColors.active}`);
+                 activeItemInDOM.classList.add(`border-l-${statusColors[destData.status] || statusColors.wishlist}`);
+            }
+        }
+    } else if (activeDestination) {
+        const itemToActivate = document.querySelector(`.destination-item[data-id="${activeDestination.id}"]`);
+        if(itemToActivate && !itemToActivate.classList.contains(`bg-blue-50`)) { 
+            itemToActivate.classList.add(`bg-blue-50`, `dark:bg-blue-900/50`, `border-l-4`, `border-l-${statusColors.active}`);
+            const destData = destinations.find(d => d.id === activeDestination.id);
+            if (destData) itemToActivate.classList.remove(`border-l-${statusColors[destData.status] || statusColors.wishlist}`);
+        }
     }
 }
 
+/**
+ * Handles selection of a destination.
+ * @param {string} id The ID of the destination.
+ */
 function selectDestination(id) {
-    const destination = destinations.find(d => d.id === id);
-    if (!destination) return;
-    
-    activeDestination = destination;
-    
-    // Update sidebar selection
+    const newActiveDestination = destinations.find(d => d.id === id);
+    if (!newActiveDestination) return;
+    activeDestination = newActiveDestination;
+
     document.querySelectorAll('.destination-item').forEach(item => {
-        item.classList.remove('active');
-        if (item.dataset.id === id) {
-            item.classList.add('active');
+        const itemId = item.dataset.id;
+        const itemDest = destinations.find(d => d.id === itemId);
+        if (!itemDest) return;
+        item.classList.remove(`bg-blue-50`, `dark:bg-blue-900/50`, `border-l-${statusColors.active}`);
+        item.classList.add(`border-l-4`, `border-l-${statusColors[itemDest.status] || statusColors.wishlist}`);
+        if (itemId === id) {
+            item.classList.add(`bg-blue-50`, `dark:bg-blue-900/50`);
+            item.classList.remove(`border-l-${statusColors[itemDest.status] || statusColors.wishlist}`);
+            item.classList.add(`border-l-4`, `border-l-${statusColors.active}`);
             item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
     });
     
-    // Update marker appearance
-    markers.forEach(marker => {
-        const dest = destinations.find(d => d.id === marker.destinationId);
-        if (marker.destinationId === id) {
-            marker.element.setIcon(markerIcons.active);
-            marker.element.openPopup();
-            map.setView([dest.coordinates.lat, dest.coordinates.lng], 6);
+    markers.forEach(markerRef => {
+        const dest = destinations.find(d => d.id === markerRef.destinationId);
+        if (!dest) return;
+        if (markerRef.destinationId === id) {
+            markerRef.element.setIcon(markerIcons.active);
+            if (markerRef.element.getPopup && !markerRef.element.isPopupOpen()) markerRef.element.openPopup();
+            map.setView([dest.coordinates.lat, dest.coordinates.lng], Math.max(map.getZoom(), 7)); 
         } else {
-            marker.element.setIcon(markerIcons[dest.status]);
+            markerRef.element.setIcon(markerIcons[dest.status] || markerIcons.wishlist);
         }
     });
 }
 
-// Set up event listeners for filters
-document.getElementById('status-filter').addEventListener('change', (e) => {
-    statusFilter = e.target.value;
-    applyFilters();
-});
+// Event Listeners
+document.getElementById('status-filter').addEventListener('change', (e) => { statusFilter = e.target.value; applyFilters(); });
+document.getElementById('year-filter').addEventListener('change', (e) => { yearFilter = e.target.value; applyFilters(); });
+document.getElementById('country-filter').addEventListener('change', (e) => { countryFilter = e.target.value; applyFilters(); });
 
-document.getElementById('year-filter').addEventListener('change', (e) => {
-    yearFilter = e.target.value;
-    applyFilters();
-});
+const resetFiltersButton = document.getElementById('reset-filters');
+if (resetFiltersButton) {
+    resetFiltersButton.addEventListener('click', () => {
+        document.getElementById('status-filter').value = 'all';
+        document.getElementById('year-filter').value = 'all';
+        document.getElementById('country-filter').value = 'all';
+        statusFilter = 'all'; yearFilter = 'all'; countryFilter = 'all';
+        activeDestination = null;
+        // Re-sort the main 'destinations' array to ensure default order is reapplied before filtering
+        sortDestinationsByDefault(destinations); 
+        applyFilters(); 
+        document.querySelectorAll('.destination-item').forEach(item => {
+             const itemDest = destinations.find(d => d.id === item.dataset.id);
+             if(itemDest) {
+                item.classList.remove(`bg-blue-50`, `dark:bg-blue-900/50`, `border-l-${statusColors.active}`);
+                item.classList.add(`border-l-4`, `border-l-${statusColors[itemDest.status] || statusColors.wishlist}`);
+             }
+        });
+        map.setView([20, 0], 2);
+    });
+}
 
-document.getElementById('country-filter').addEventListener('change', (e) => {
-    countryFilter = e.target.value;
-    applyFilters();
-});
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', () => document.documentElement.classList.toggle('dark'));
+}
 
-document.getElementById('reset-filters').addEventListener('click', () => {
-    document.getElementById('status-filter').value = 'all';
-    document.getElementById('year-filter').value = 'all';
-    document.getElementById('country-filter').value = 'all';
-    statusFilter = 'all';
-    yearFilter = 'all';
-    countryFilter = 'all';
-    applyFilters();
-    map.setView([20, 0], 2);
-});
-
-// Toggle dark mode
-document.querySelector('.dark-mode-toggle').addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    const icon = document.querySelector('.dark-mode-toggle i');
-    icon.classList.toggle('fa-moon');
-    icon.classList.toggle('fa-sun');
-});
-
-// Initialize the application
-window.onload = initMap;
+// Initialize
+document.addEventListener('DOMContentLoaded', initializeApp);
