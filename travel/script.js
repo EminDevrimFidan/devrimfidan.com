@@ -6,6 +6,7 @@
  * 2. Year (Descending, newest first) within each status group
  * 3. Name (Alphabetically) as a final tie-breaker.
  * Thumbnail images in the sidebar are 8rem wide and 6rem tall.
+ * Popup visibility on marker click is improved by adjusting the map's center view.
  */
 
 // Global variables
@@ -70,35 +71,19 @@ function sortDestinationsByDefault(destinationsArray) {
     };
 
     destinationsArray.sort((a, b) => {
-        // Primary sort: by status
-        const orderA = statusOrder[a.status] || 4; // Assign a high number for unknown/undefined statuses
+        const orderA = statusOrder[a.status] || 4; 
         const orderB = statusOrder[b.status] || 4;
-        
-        if (orderA !== orderB) {
-            return orderA - orderB;
-        }
+        if (orderA !== orderB) return orderA - orderB;
 
-        // Secondary sort: by year (descending)
-        // Handle cases where year might be null or undefined by treating them as older
-        const yearA = a.year == null ? -Infinity : a.year; // Treat null/undefined years as very old
+        const yearA = a.year == null ? -Infinity : a.year; 
         const yearB = b.year == null ? -Infinity : b.year;
+        if (yearA !== yearB) return yearB - yearA; 
 
-        if (yearA !== yearB) {
-            return yearB - yearA; // Descending order for year
-        }
-
-        // Tertiary sort: by name (alphabetically)
-        if (a.name && b.name) {
-            return a.name.localeCompare(b.name);
-        }
-        return 0; // Should not be reached if names are always present
+        if (a.name && b.name) return a.name.localeCompare(b.name);
+        return 0; 
     });
 }
 
-
-/**
- * Initializes the application: loads data, sorts it, sets up the map, populates filters, and renders initial view.
- */
 function initializeApp() {
     const loadingElement = document.getElementById('loading-destinations');
     const listElement = document.getElementById('destination-list');
@@ -112,19 +97,17 @@ function initializeApp() {
         }
         return;
     }
-
-    destinations = [...destinationsData]; // Copy data
-
-    // MODIFIED: Sort the destinations array by the desired default order (status, then year desc)
+    destinations = [...destinationsData]; 
     sortDestinationsByDefault(destinations);
-
     if (loadingElement) loadingElement.style.display = 'none';
 
-    map = L.map('map', { preferCanvas: true }).setView([20, 0], 2);
+    map = L.map('map', { 
+        preferCanvas: true,
+    }).setView([20, 0], 2);
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" class="text-blue-600 hover:underline">OpenStreetMap</a> contributors',
-        maxZoom: 18,
-        minZoom: 2
+        maxZoom: 18, minZoom: 2
     }).addTo(map);
     
     populateYearFilter();
@@ -133,7 +116,6 @@ function initializeApp() {
     document.getElementById('status-filter').value = statusFilter;
     document.getElementById('year-filter').value = yearFilter;
     document.getElementById('country-filter').value = countryFilter;
-
     applyFilters(); 
     
     document.getElementById('zoom-in').addEventListener('click', () => map.zoomIn());
@@ -141,10 +123,6 @@ function initializeApp() {
     document.getElementById('center-map').addEventListener('click', () => map.setView([20, 0], 2));
 }
 
-/**
- * Creates and adds Leaflet markers to the map for the given destinations.
- * @param {Array<Object>} destinationsToMark Array of destination objects.
- */
 function createMarkers(destinationsToMark) {
     markers.forEach(marker => {
         if (map.hasLayer(marker.element)) map.removeLayer(marker.element);
@@ -163,12 +141,9 @@ function createMarkers(destinationsToMark) {
             console.warn(`Skipping marker for ${destination.name} (ID: ${destination.id}) due to invalid coordinates:`, destination.coordinates);
             return; 
         }
-
         const marker = L.marker([lat, lng], { icon: icon }).addTo(map);
-        
         const statusColorClass = statusColors[destination.status] || statusColors.wishlist;
         const bgColorClass = `bg-${statusColorClass}`;
-
         const popupContent = `
             <div class="popup-content bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-lg overflow-hidden">
                 <img src="${destination.image}" alt="${destination.name || 'Destination Image'}" class="w-full h-44 object-cover" onerror="this.style.display='none'; console.warn('Image failed to load for ${destination.name}: ${destination.image}'); const placeholder = document.createElement('div'); placeholder.className='w-full h-44 bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-500'; placeholder.innerText='Image not found'; this.parentNode.insertBefore(placeholder, this);">
@@ -196,7 +171,8 @@ function createMarkers(destinationsToMark) {
             className: 'custom-popup',
             closeButton: true,
             minWidth: 320,
-            maxWidth: 350 
+            maxWidth: 350,
+            autoPan: false // IMPORTANT: Disable Leaflet's default autoPan
         });
         
         marker.on('click', () => selectDestination(destination.id));
@@ -204,38 +180,23 @@ function createMarkers(destinationsToMark) {
     });
 }
 
-/**
- * Renders the list of destinations in the sidebar.
- * @param {Array<Object>} destinationsToRender Array of destination objects.
- */
 function renderDestinations(destinationsToRender) {
     const listElement = document.getElementById('destination-list');
     listElement.innerHTML = ''; 
-    
     const loadingElement = document.getElementById('loading-destinations');
-    if (loadingElement && loadingElement.style.display !== 'none') {
-        loadingElement.style.display = 'none';
-    }
+    if (loadingElement && loadingElement.style.display !== 'none') loadingElement.style.display = 'none';
 
     if (destinationsToRender.length === 0) {
         listElement.innerHTML = `<li class="p-4 text-center text-gray-500 dark:text-gray-400">No destinations match your filter criteria.</li>`;
         return;
     }
-
     destinationsToRender.forEach(destination => {
         const item = document.createElement('li');
         const isActive = activeDestination && activeDestination.id === destination.id;
         const statusColorName = statusColors[destination.status] || statusColors.wishlist; 
-        
-        item.className = `
-            destination-item p-3 border-b border-gray-200 dark:border-gray-700 cursor-pointer 
-            hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150
-            ${isActive ? `bg-blue-50 dark:bg-blue-900/50 border-l-4 border-l-${statusColors.active}` : `border-l-4 border-l-${statusColorName}`}
-        `;
+        item.className = `destination-item p-3 border-b border-gray-200 dark:border-gray-700 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150 ${isActive ? `bg-blue-50 dark:bg-blue-900/50 border-l-4 border-l-${statusColors.active}` : `border-l-4 border-l-${statusColorName}`}`;
         item.dataset.id = destination.id;
-        
         const destinationNameText = destination.name || 'Unnamed Destination';
-        
         item.innerHTML = `
             <div class="flex items-start space-x-3">
                 <img src="${destination.image}" alt="${destination.name || 'Destination'}" class="w-32 h-24 object-cover rounded-md flex-shrink-0" onerror="this.style.display='none'; console.warn('Image failed to load for list item ${destination.name}: ${destination.image}'); const placeholder = document.createElement('div'); placeholder.className='w-32 h-24 bg-gray-200 dark:bg-gray-700 rounded-md flex items-center justify-center text-gray-400 text-xs'; placeholder.innerText='No Img'; this.parentNode.insertBefore(placeholder, this);">
@@ -248,72 +209,35 @@ function renderDestinations(destinationsToRender) {
                         <span class="truncate" title="${destination.country || 'N/A'}">${destination.country || 'N/A'}</span>
                         ${destination.year ? `<span class="ml-2 flex-shrink-0 px-1.5 py-0.5 bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded text-xs font-medium">${destination.year}</span>` : ''}
                     </div>
-                    <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">
-                        <i class="fas ${destination.transport === 'flight' ? 'fa-plane' : (destination.transport === 'train' ? 'fa-train' : 'fa-car')} mr-1 text-gray-500 dark:text-gray-400"></i> ${destination.duration || 'N/A'}
-                    </p>
+                    <p class="text-xs text-gray-600 dark:text-gray-300 mt-1"> <i class="fas ${destination.transport === 'flight' ? 'fa-plane' : (destination.transport === 'train' ? 'fa-train' : 'fa-car')} mr-1 text-gray-500 dark:text-gray-400"></i> ${destination.duration || 'N/A'} </p>
                     <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2" title="${destination.notes || ''}">${destination.notes || ''}</p>
                 </div>
-            </div>
-        `;
-        
+            </div>`;
         item.addEventListener('click', () => selectDestination(destination.id));
         listElement.appendChild(item);
     });
 }
 
-/**
- * Populates the year filter dropdown.
- */
 function populateYearFilter() {
     const yearFilterEl = document.getElementById('year-filter');
     while (yearFilterEl.options.length > 1) yearFilterEl.remove(1);
     const years = [...new Set(destinations.map(d => d.year).filter(year => year != null))].sort((a, b) => b - a);
-    years.forEach(year => {
-        const option = document.createElement('option');
-        option.value = year; option.textContent = year;
-        yearFilterEl.appendChild(option);
-    });
+    years.forEach(year => { const option = document.createElement('option'); option.value = year; option.textContent = year; yearFilterEl.appendChild(option); });
 }
 
-/**
- * Populates the country filter dropdown.
- */
 function populateCountryFilter() {
     const countryFilterEl = document.getElementById('country-filter');
     while (countryFilterEl.options.length > 1) countryFilterEl.remove(1);
     const countries = [...new Set(destinations.map(d => d.country).filter(country => country && country.trim() !== ''))].sort();
-    countries.forEach(country => {
-        const option = document.createElement('option');
-        option.value = country; option.textContent = country;
-        countryFilterEl.appendChild(option);
-    });
+    countries.forEach(country => { const option = document.createElement('option'); option.value = country; option.textContent = country; countryFilterEl.appendChild(option); });
 }
 
-/**
- * Applies filters and re-renders.
- */
 function applyFilters() {
     let filteredDestinations = [...destinations]; 
-    
-    if (statusFilter !== 'all') {
-        filteredDestinations = filteredDestinations.filter(d => d.status === statusFilter);
-    }
-    if (yearFilter !== 'all') {
-        filteredDestinations = filteredDestinations.filter(d => d.year && d.year.toString() === yearFilter);
-    }
-    if (countryFilter !== 'all') {
-        filteredDestinations = filteredDestinations.filter(d => d.country === countryFilter);
-    }
-    
-    // If filters are applied (not all 'all'), re-sort the filtered subset
-    // This ensures that if, for example, only 'visited' is selected,
-    // those 'visited' items are then sorted by year descending.
-    // If all filters are 'all', the original default sort is maintained.
+    if (statusFilter !== 'all') filteredDestinations = filteredDestinations.filter(d => d.status === statusFilter);
+    if (yearFilter !== 'all') filteredDestinations = filteredDestinations.filter(d => d.year && d.year.toString() === yearFilter);
+    if (countryFilter !== 'all') filteredDestinations = filteredDestinations.filter(d => d.country === countryFilter);
     if (statusFilter !== 'all' || yearFilter !== 'all' || countryFilter !== 'all') {
-        // We can re-apply the full sort logic, or a more targeted one.
-        // For simplicity and consistency, re-applying the full sort logic on the filtered subset is fine.
-        // However, the primary sort by status might be less relevant if a specific status is already filtered.
-        // So, if a status is selected, we primarily sort by year desc within that status.
         if (statusFilter !== 'all') {
             filteredDestinations.sort((a, b) => {
                 const yearA = a.year == null ? -Infinity : a.year;
@@ -322,17 +246,10 @@ function applyFilters() {
                 if (a.name && b.name) return a.name.localeCompare(b.name);
                 return 0;
             });
-        } else {
-            // If status is 'all' but other filters are active, apply the default multi-level sort
-            sortDestinationsByDefault(filteredDestinations);
-        }
+        } else { sortDestinationsByDefault(filteredDestinations); }
     }
-    // If no filters are active (all are 'all'), 'filteredDestinations' is already a copy of the
-    // default-sorted 'destinations' array, so no re-sort is needed here.
-
     renderDestinations(filteredDestinations);
     createMarkers(filteredDestinations); 
-    
     if (activeDestination && !filteredDestinations.some(d => d.id === activeDestination.id)) {
         const activeItemInDOM = document.querySelector(`.destination-item[data-id="${activeDestination.id}"]`);
         if (activeItemInDOM) {
@@ -352,10 +269,6 @@ function applyFilters() {
     }
 }
 
-/**
- * Handles selection of a destination.
- * @param {string} id The ID of the destination.
- */
 function selectDestination(id) {
     const newActiveDestination = destinations.find(d => d.id === id);
     if (!newActiveDestination) return;
@@ -378,10 +291,25 @@ function selectDestination(id) {
     markers.forEach(markerRef => {
         const dest = destinations.find(d => d.id === markerRef.destinationId);
         if (!dest) return;
+
         if (markerRef.destinationId === id) {
             markerRef.element.setIcon(markerIcons.active);
-            if (markerRef.element.getPopup && !markerRef.element.isPopupOpen()) markerRef.element.openPopup();
-            map.setView([dest.coordinates.lat, dest.coordinates.lng], Math.max(map.getZoom(), 7)); 
+            
+            const targetLatLng = L.latLng(dest.coordinates.lat, dest.coordinates.lng);
+            const currentZoom = Math.max(map.getZoom(), 7);
+
+            // Calculate the new map center to make the marker appear lower
+            const markerPoint = map.project(targetLatLng, currentZoom); 
+            const pixelOffset = 100; // Pixels to shift marker down visually on screen. Adjust this value.
+            const newCenterPoint = L.point(markerPoint.x, markerPoint.y - pixelOffset); // Subtract to move center UP
+            const newCenterLatLng = map.unproject(newCenterPoint, currentZoom);
+
+            map.setView(newCenterLatLng, currentZoom, { animate: true });
+            
+            if (markerRef.element.getPopup()) {
+                markerRef.element.openPopup();
+                // No additional panBy here, setView has already positioned the map.
+            }
         } else {
             markerRef.element.setIcon(markerIcons[dest.status] || markerIcons.wishlist);
         }
@@ -401,7 +329,6 @@ if (resetFiltersButton) {
         document.getElementById('country-filter').value = 'all';
         statusFilter = 'all'; yearFilter = 'all'; countryFilter = 'all';
         activeDestination = null;
-        // Re-sort the main 'destinations' array to ensure default order is reapplied before filtering
         sortDestinationsByDefault(destinations); 
         applyFilters(); 
         document.querySelectorAll('.destination-item').forEach(item => {
