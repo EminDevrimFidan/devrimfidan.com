@@ -7,6 +7,7 @@
  * 3. Name (Alphabetically) as a final tie-breaker.
  * Thumbnail images in the sidebar are 8rem wide and 6rem tall.
  * Popup visibility on marker click is improved by adjusting the map's center view.
+ * Popup image is hidden on mobile for better fit.
  */
 
 // Global variables
@@ -144,9 +145,13 @@ function createMarkers(destinationsToMark) {
         const marker = L.marker([lat, lng], { icon: icon }).addTo(map);
         const statusColorClass = statusColors[destination.status] || statusColors.wishlist;
         const bgColorClass = `bg-${statusColorClass}`;
+
+        // MODIFIED: Added 'hidden md:block' to the <img> tag for responsive visibility
+        // Also adjusted the onerror placeholder slightly.
         const popupContent = `
             <div class="popup-content bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-lg overflow-hidden">
-                <img src="${destination.image}" alt="${destination.name || 'Destination Image'}" class="w-full h-44 object-cover" onerror="this.style.display='none'; console.warn('Image failed to load for ${destination.name}: ${destination.image}'); const placeholder = document.createElement('div'); placeholder.className='w-full h-44 bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-500'; placeholder.innerText='Image not found'; this.parentNode.insertBefore(placeholder, this);">
+                <img src="${destination.image}" alt="${destination.name || 'Destination Image'}" class="w-full h-44 object-cover hidden md:block" onerror="this.style.display='none'; console.warn('Image failed to load for ${destination.name}: ${destination.image}'); const placeholder = this.nextSibling; if(placeholder && placeholder.classList.contains('popup-image-placeholder')) { placeholder.classList.remove('hidden'); }">
+                <div class="popup-image-placeholder hidden w-full h-auto py-2 text-center text-xs text-gray-400 dark:text-gray-500 md:hidden">Image hidden on mobile</div>
                 <div class="p-3">
                     <div class="flex justify-between items-center mb-2">
                         <h3 class="text-lg font-semibold truncate" title="${destination.name || 'N/A'}, ${destination.country || 'N/A'}">${destination.name || 'N/A'}, ${destination.country || 'N/A'}</h3>
@@ -170,9 +175,9 @@ function createMarkers(destinationsToMark) {
         marker.bindPopup(popupContent, {
             className: 'custom-popup',
             closeButton: true,
-            minWidth: 320,
+            minWidth: 280, // Adjusted minWidth for mobile when image is hidden
             maxWidth: 350,
-            autoPan: false // IMPORTANT: Disable Leaflet's default autoPan
+            autoPan: false 
         });
         
         marker.on('click', () => selectDestination(destination.id));
@@ -298,17 +303,15 @@ function selectDestination(id) {
             const targetLatLng = L.latLng(dest.coordinates.lat, dest.coordinates.lng);
             const currentZoom = Math.max(map.getZoom(), 7);
 
-            // Calculate the new map center to make the marker appear lower
             const markerPoint = map.project(targetLatLng, currentZoom); 
-            const pixelOffset = 100; // Pixels to shift marker down visually on screen. Adjust this value.
-            const newCenterPoint = L.point(markerPoint.x, markerPoint.y - pixelOffset); // Subtract to move center UP
+            const pixelOffset = 100; 
+            const newCenterPoint = L.point(markerPoint.x, markerPoint.y - pixelOffset); 
             const newCenterLatLng = map.unproject(newCenterPoint, currentZoom);
 
             map.setView(newCenterLatLng, currentZoom, { animate: true });
             
             if (markerRef.element.getPopup()) {
                 markerRef.element.openPopup();
-                // No additional panBy here, setView has already positioned the map.
             }
         } else {
             markerRef.element.setIcon(markerIcons[dest.status] || markerIcons.wishlist);
