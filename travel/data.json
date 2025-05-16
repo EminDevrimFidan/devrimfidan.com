@@ -1006,7 +1006,7 @@ const destinationsData = [
         "continent": "Europe",
         "image": "https://source.unsplash.com/800x600/?St.Petersburg,Russia",
         "status": "visited",
-        "year": 2011,
+        "year": 2007,
         "transport": "flight",
         "duration": "1 week",
         "link": "https://www.google.com/search?q=tourism+St.Petersburg+Russia",
@@ -1021,7 +1021,7 @@ const destinationsData = [
         "continent": "Europe",
         "image": "https://source.unsplash.com/800x600/?Skopje,North+Macedonia",
         "status": "visited",
-        "year": 2011,
+        "year": 2013,
         "transport": "flight",
         "duration": "1 week",
         "link": "https://www.google.com/search?q=tourism+Skopje+North+Macedonia",
@@ -1051,7 +1051,7 @@ const destinationsData = [
         "continent": "Europe",
         "image": "https://source.unsplash.com/800x600/?Tartu,Estonia",
         "status": "visited",
-        "year": 2011,
+        "year": 2009,
         "transport": "flight",
         "duration": "1 week",
         "link": "https://www.google.com/search?q=tourism+Tartu+Estonia",
@@ -1284,6 +1284,38 @@ const destinationsData = [
         "notes": "Visited Odense, a fascinating city.",
         "detailedNotes": "A memorable trip to Odense, Denmark. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 55.4038, "lng": 10.4024 }
+    },
+    {
+        "id": "kassel",
+        "name": "Kassel",
+        "country": "Germany",
+        "continent": "Europe",
+        "image": "https://source.unsplash.com/800x600/?Kassel,Germany",
+        "status": "visited",
+        "year": 2006,
+        "transport": "flight",
+        "duration": "1 month",
+        "link": "https://www.google.com/search?q=tourism+Kassel+Germany",
+        "notes": "Visited Kassel, a fascinating city.", 
+        "detailedNotes": "A memorable trip to Kassel, Germany. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 51.3127, "lng": 9.4797 }
+
+    },
+    {
+        "id": "bonn",
+        "name": "Bonn",
+        "country": "Germany",
+        "continent": "Europe",
+        "image": "https://source.unsplash.com/800x600/?Bonn,Germany",
+        "status": "visited",
+        "year": 2010,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Bonn+Germany",
+        "notes": "Visited Bonn, a fascinating city.",
+        "detailedNotes": "A memorable trip to Bonn, Germany. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 50.7374, "lng": 7.0982 }
+
     }
 
 
