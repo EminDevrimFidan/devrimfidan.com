@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emin Devrim Fidan - Story Version</title>
+  <title>Emin Devrim Fidan - Dynamic Story Version</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
@@ -16,207 +16,217 @@
       }
     }
     .full-page-interstitial {
-        height: 100vh; /* Full viewport height */
+        height: 100vh; 
         background-size: cover;
         background-position: center;
         display: flex;
-        align-items: center; /* Vertically center content */
-        position: relative; /* For z-indexing text overlay */
+        align-items: center; 
+        position: relative; 
     }
-
-    /* Styles for the YouTube embed technique */
     .yt-embed-holder {
         width: 100%;
         overflow: hidden;
-        aspect-ratio: 16/9; /* Standard video aspect ratio */
-        pointer-events: none; /* Makes the video non-interactive, like a background */
-        border-radius: 0.5rem; /* Matches other rounded-lg elements */
-        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* Matches shadow-lg */
-        background-color: #000; /* Fallback background */
+        aspect-ratio: 16/9; 
+        pointer-events: none; 
+        border-radius: 0.5rem; 
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); 
+        background-color: #000;
     }
     .yt-embed-holder iframe {
-        width: 300%; /* Over-extend to ensure full cover and hide YouTube chrome */
+        width: 300%; 
         height: 100%;
-        margin-left: -100%; /* Center the oversized iframe */
-        border: none; /* Ensure no iframe border */
+        margin-left: -100%; 
+        border: none; 
     }
   </style>
 </head>
 <body class="m-0 p-0 font-['Space_Grotesk',_sans-serif] bg-white text-gray-900 flex flex-col min-h-screen">
 
-<main class="flex-grow">
-  <section class="h-screen flex flex-col items-center justify-center text-center bg-gray-100 p-4 sm:p-6 lg:p-8">
-    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">Welcome to the Gallery</h1>
-    <p class="text-lg sm:text-xl text-gray-700 max-w-2xl">
-      Discover a collection of captivating visuals and explore the essence of beauty through different lenses.
-    </p>
-  </section>
+  <main id="content-container" class="flex-grow">
+    </main>
 
-  <section id="story-1" class="flex flex-col md:flex-row pt-[10vh] sm:pt-[15vh] md:pt-[20vh] pb-[5vh] sm:pb-[10vh] md:pb-[15vh] px-4 sm:px-6 lg:px-8">
-    <div class="w-full md:w-2/5 px-0 md:px-[2.5%] mb-8 md:mb-0">
-      <div class="sticky top-6 py-4">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold m-0 leading-tight">Story One: The Awakening</h2>
-        <p class="mt-3 text-gray-600 text-base md:text-lg">A curated selection of pieces that challenge perception and invite contemplation. Each artwork tells a unique story of discovery.</p>
-      </div>
-    </div>
-    <div class="w-full md:w-3/5 flex flex-wrap">
-      <div class="w-full sm:w-1/2 p-3 md:p-4 lg:p-6 mb-8 sm:mb-10 md:mb-12">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="Story 1 Image 1: Scenic landscape" class="block w-full h-auto aspect-[4/3] sm:aspect-square md:aspect-[3/4] lg:h-[500px] object-cover filter grayscale hover:filter-none transition-all duration-300 ease-in-out rounded-lg shadow-lg">
-      </div>
-      <div class="w-full sm:w-1/2 p-3 md:p-4 lg:p-6 mb-8 sm:mb-10 md:mb-12">
-        <img src="https://images.unsplash.com/photo-1604397653091-f08b42e22bb9?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTQ3Mg&ixlib=rb-1.2.1&q=85" alt="Story 1 Image 2: Abstract art" class="block w-full h-auto aspect-[4/3] sm:aspect-square md:aspect-[3/4] lg:h-[500px] object-cover filter grayscale hover:filter-none transition-all duration-300 ease-in-out rounded-lg shadow-lg">
-      </div>
-      <div class="w-full p-3 md:p-4 lg:p-6 mb-8 sm:mb-10 md:mb-12">
-        <img src="https://images.unsplash.com/photo-1603091083798-7c62120169df?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTQzMA&ixlib=rb-1.2.1&q=85" alt="Story 1 Image 3: Different abstract art" class="block w-full h-auto aspect-video md:h-[500px] object-cover filter grayscale hover:filter-none transition-all duration-300 ease-in-out rounded-lg shadow-lg">
-      </div>
-    </div>
-  </section>
+  <footer class="bg-gray-800 text-gray-300 text-center p-6 mt-auto">
+    <p class="text-sm">© 2025 Emin Devrim Fidan. All Rights Reserved.</p> 
+    <p class="text-xs mt-1">Exploring the Intersections of Art & Code</p>
+  </footer>
 
-  <section class="full-page-interstitial" style="background-image: url('https://images.unsplash.com/photo-1536566482680-fca31930a0bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
-    <div class="absolute inset-0 bg-black opacity-30"></div>
-    <div class="relative z-10 p-8 md:p-12 lg:p-16 w-full md:w-1/2 lg:w-2/5 xl:w-1/3 bg-black bg-opacity-60 text-white rounded-lg ml-4 md:ml-8 lg:ml-16">
-      <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">A Moment of Reflection</h3>
-      <p class="text-base sm:text-lg">Pause and ponder. The journey unfolds in unexpected ways, revealing layers of meaning.</p>
-    </div>
-  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const contentContainer = document.getElementById('content-container');
 
-  <section id="story-2" class="flex flex-col md:flex-row pt-[10vh] sm:pt-[15vh] md:pt-[20vh] pb-[5vh] sm:pb-[10vh] md:pb-[15vh] px-4 sm:px-6 lg:px-8">
-    <div class="w-full md:w-2/5 px-0 md:px-[2.5%] mb-8 md:mb-0">
-      <div class="sticky top-6 py-4">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold m-0 leading-tight">Story Two: The Dance of Light</h2>
-        <p class="mt-3 text-gray-600 text-base md:text-lg">This collection explores the multifaceted nature of beauty, showcasing diverse interpretations and styles from various artists, including the moving image.</p>
-      </div>
-    </div>
-    <div class="w-full md:w-3/5 flex flex-wrap">
-      <div class="w-full p-3 md:p-4 lg:p-6 mb-8 sm:mb-10 md:mb-12">
-        <div class="yt-embed-holder">
-          <iframe
-                  src="https://www.youtube.com/embed/LlCwHnp3kL4?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1&playlist=LlCwHnp3kL4"
-                  title="YouTube video player for Story 2"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen>
-          </iframe>
-        </div>
-      </div>
-      <div class="w-full sm:w-1/2 p-3 md:p-4 lg:p-6 mb-8 sm:mb-10 md:mb-12">
-        <img src="https://images.unsplash.com/photo-1533198942439-2d69cfd_557ab?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTU5Mw&ixlib=rb-1.2.1&q=85" alt="Story 2 Image 1: Abstract art" class="block w-full h-auto aspect-[4/3] sm:aspect-square md:aspect-[3/4] lg:h-[500px] object-cover filter grayscale hover:filter-none transition-all duration-300 ease-in-out rounded-lg shadow-lg">
-      </div>
-      <div class="w-full sm:w-1/2 p-3 md:p-4 lg:p-6 mb-8 sm:mb-10 md:mb-12">
-        <img src="https://images.unsplash.com/photo-1598690594129-f79eee68761f?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTY0OQ&ixlib=rb-1.2.1&q=85" alt="Story 2 Image 2: Different abstract art" class="block w-full h-auto aspect-[4/3] sm:aspect-square md:aspect-[3/4] lg:h-[500px] object-cover filter grayscale hover:filter-none transition-all duration-300 ease-in-out rounded-lg shadow-lg">
-      </div>
-    </div>
-  </section>
+      fetch('content.json') // Assumes content.json is in the same directory
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+          }
+          return response.json();
+        })
+        .then(data => {
+          data.forEach(sectionData => {
+            if (sectionData.type === 'hero') {
+              contentContainer.appendChild(createHeroSection(sectionData));
+            } else if (sectionData.type === 'story') {
+              contentContainer.appendChild(createStorySection(sectionData));
+            } else if (sectionData.type === 'interstitial') {
+              contentContainer.appendChild(createInterstitialSection(sectionData));
+            } else if (sectionData.type === 'visualGrid') {
+              contentContainer.appendChild(createVisualGridSection(sectionData));
+            }
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching or parsing content.json:', error);
+          contentContainer.innerHTML = `<p class="text-center text-red-500 p-8">Error loading content. Please check the console.</p>`;
+        });
 
-  <section id="story-3" class="flex flex-col md:flex-row pt-[10vh] sm:pt-[15vh] md:pt-[20vh] pb-[5vh] sm:pb-[10vh] md:pb-[15vh] px-4 sm:px-6 lg:px-8">
-    <div class="w-full md:w-2/5 px-0 md:px-[2.5%] mb-8 md:mb-0">
-      <div class="sticky top-6 py-4">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold m-0 leading-tight">Story Three: Echoes of Form</h2>
-        <p class="mt-3 text-gray-600 text-base md:text-lg">Exploring the interplay of shapes, structures, and the spaces in between. Each piece resonates with a silent narrative.</p>
-      </div>
-    </div>
-    <div class="w-full md:w-3/5 flex flex-wrap">
-      <div class="w-full p-3 md:p-4 lg:p-6 mb-8 sm:mb-10 md:mb-12">
-        <div class="yt-embed-holder">
-          <iframe
-                  src="https://www.youtube.com/embed/l9_4VeoZwBY?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1&playlist=l9_4VeoZwBY"
-                  title="YouTube video player for Story 3"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen>
-          </iframe>
-        </div>
-      </div>
-      <div class="w-full sm:w-1/2 p-3 md:p-4 lg:p-6 mb-8 sm:mb-10 md:mb-12">
-        <img src="https://images.unsplash.com/photo-1564826240277-446fc710c830?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTk1Mg&ixlib=rb-1.2.1&q=85" alt="Story 3 Image 1: Abstract form" class="block w-full h-auto aspect-[4/3] sm:aspect-square md:aspect-[3/4] lg:h-[500px] object-cover filter grayscale hover:filter-none transition-all duration-300 ease-in-out rounded-lg shadow-lg">
-      </div>
-      <div class="w-full sm:w-1/2 p-3 md:p-4 lg:p-6 mb-8 sm:mb-10 md:mb-12">
-        <img src="https://images.unsplash.com/photo-1609579390917-d5d29927d965?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkyMDAxMQ&ixlib=rb-1.2.1&q=85" alt="Story 3 Image 2: Another abstract form" class="block w-full h-auto aspect-[4/3] sm:aspect-square md:aspect-[3/4] lg:h-[500px] object-cover filter grayscale hover:filter-none transition-all duration-300 ease-in-out rounded-lg shadow-lg">
-      </div>
-    </div>
-  </section>
+      function createHeroSection(data) {
+        const section = document.createElement('section');
+        section.className = 'h-screen flex flex-col items-center justify-center text-center bg-gray-100 p-4 sm:p-6 lg:p-8';
+        section.innerHTML = `
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">${data.title}</h1>
+          <p class="text-lg sm:text-xl text-gray-700 max-w-2xl">${data.subtitle}</p>
+        `;
+        return section;
+      }
 
-  <section class="full-page-interstitial" style="background-image: url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
-    <div class="absolute inset-0 bg-black opacity-30"></div>
-    <div class="relative z-10 p-8 md:p-12 lg:p-16 w-full md:w-1/2 lg:w-2/5 xl:w-1/3 bg-black bg-opacity-60 text-white rounded-lg ml-4 md:ml-8 lg:ml-16">
-      <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">Whispers of the Unseen</h3>
-      <p class="text-base sm:text-lg">Beyond the visible, a world of subtle energies and hidden connections awaits discovery.</p>
-    </div>
-  </section>
+      function createStorySection(data) {
+        const section = document.createElement('section');
+        section.id = data.id;
+        section.className = 'pt-[10vh] sm:pt-[15vh] md:pt-[20vh] pb-[5vh] sm:pb-[10vh] md:pb-[15vh] px-4 sm:px-6 lg:px-8';
+        
+        const mainFlexContainer = document.createElement('div');
+        mainFlexContainer.className = 'flex flex-col'; // Changed to flex-col for Story 4 layout
 
-  <section id="story-4" class="flex flex-col md:flex-row pt-[10vh] sm:pt-[15vh] md:pt-[20vh] pb-[5vh] sm:pb-[10vh] md:pb-[15vh] px-4 sm:px-6 lg:px-8">
-    <div class="w-full md:w-2/5 px-0 md:px-[2.5%] mb-8 md:mb-0">
-      <div class="sticky top-6 py-4">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold m-0 leading-tight">Story Four: Chromatic Dreams</h2>
-        <p class="mt-3 text-gray-600 text-base md:text-lg">A journey through the spectrum of color, where hues evoke emotions and paint vivid mental landscapes.</p>
-      </div>
-    </div>
-    <div class="w-full md:w-3/5 flex flex-wrap">
-      <div class="w-full sm:w-1/2 p-3 md:p-4 lg:p-6 mb-8 sm:mb-10 md:mb-12">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="Story 4 Image 1: Colorful landscape" class="block w-full h-auto aspect-[4/3] sm:aspect-square md:aspect-[3/4] lg:h-[500px] object-cover filter grayscale hover:filter-none transition-all duration-300 ease-in-out rounded-lg shadow-lg">
-      </div>
-      <div class="w-full sm:w-1/2 p-3 md:p-4 lg:p-6 mb-8 sm:mb-10 md:mb-12">
-         <img src="https://images.unsplash.com/photo-1604397653091-f08b42e22bb9?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTQ3Mg&ixlib=rb-1.2.1&q=85" alt="Story 4 Image 2: Vibrant abstract" class="block w-full h-auto aspect-[4/3] sm:aspect-square md:aspect-[3/4] lg:h-[500px] object-cover filter grayscale hover:filter-none transition-all duration-300 ease-in-out rounded-lg shadow-lg">
-      </div>
-      <div class="w-full p-3 md:p-4 lg:p-6 mb-8 sm:mb-10 md:mb-12">
-        <div class="yt-embed-holder">
-          <iframe
-                  src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE_S4?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playsinline=1&enablejsapi=1&playlist=YOUR_VIDEO_ID_HERE_S4"
-                  title="YouTube video player for Story 4"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen>
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </section>
+        const twoColumnRow = document.createElement('div');
+        twoColumnRow.className = 'flex flex-col md:flex-row';
+        if (data.id === 'story-4') { // Add bottom margin only if it's story-4 and has additional gallery
+            twoColumnRow.classList.add('mb-8', 'md:mb-16');
+        }
 
-  <section id="story-5" class="flex flex-col md:flex-row pt-[10vh] sm:pt-[15vh] md:pt-[20vh] pb-[5vh] sm:pb-[10vh] md:pb-[15vh] px-4 sm:px-6 lg:px-8">
-    <div class="w-full md:w-2/5 px-0 md:px-[2.5%] mb-8 md:mb-0">
-      <div class="sticky top-6 py-4">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold m-0 leading-tight">Story Five: The Infinite Horizon</h2>
-        <p class="mt-3 text-gray-600 text-base md:text-lg">Gazing towards the future, where possibilities are endless and the journey of discovery continues.</p>
-      </div>
-    </div>
-    <div class="w-full md:w-3/5 flex flex-wrap">
-      <div class="w-full sm:w-1/2 p-3 md:p-4 lg:p-6 mb-8 sm:mb-10 md:mb-12">
-        <img src="https://images.unsplash.com/photo-1603091083798-7c62120169df?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTQzMA&ixlib=rb-1.2.1&q=85" alt="Story 5 Image 1: Horizon abstract" class="block w-full h-auto aspect-[4/3] sm:aspect-square md:aspect-[3/4] lg:h-[500px] object-cover filter grayscale hover:filter-none transition-all duration-300 ease-in-out rounded-lg shadow-lg">
-      </div>
-      <div class="w-full sm:w-1/2 p-3 md:p-4 lg:p-6 mb-8 sm:mb-10 md:mb-12">
-         <img src="https://images.unsplash.com/photo-1564826240277-446fc710c830?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTk1Mg&ixlib=rb-1.2.1&q=85" alt="Story 5 Image 2: Light and Shadow" class="block w-full h-auto aspect-[4/3] sm:aspect-square md:aspect-[3/4] lg:h-[500px] object-cover filter grayscale hover:filter-none transition-all duration-300 ease-in-out rounded-lg shadow-lg">
-      </div>
-      <div class="w-full p-3 md:p-4 lg:p-6 mb-8 sm:mb-10 md:mb-12">
-        <img src="https://images.unsplash.com/photo-1533198942439-2d69cfd_557ab?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTU5Mw&ixlib=rb-1.2.1&q=85" alt="Story 5 Image 3: Future abstract" class="block w-full h-auto aspect-video md:h-[500px] object-cover filter grayscale hover:filter-none transition-all duration-300 ease-in-out rounded-lg shadow-lg">
-      </div>
-    </div>
-  </section>
 
-  <section id="story-6-visuals" class="py-[10vh] sm:py-[15vh] md:py-[20vh] px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold m-0 leading-tight text-center mb-12 md:mb-16">Visual Interlude: A Tapestry of Moments</h2>
-    <div class="flex flex-wrap -m-2 md:-m-3 lg:-m-4"> <div class="w-full sm:w-1/2 md:w-1/3 p-2 md:p-3 lg:p-4">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="Visual Story Image 1: Scenic Nature" class="block w-full h-auto aspect-[4/3] object-cover filter grayscale rounded-lg shadow-lg hover:filter-none transition-all duration-300 ease-in-out">
-      </div>
-      <div class="w-full sm:w-1/2 md:w-1/3 p-2 md:p-3 lg:p-4">
-        <img src="https://images.unsplash.com/photo-1604397653091-f08b42e22bb9?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTQ3Mg&ixlib=rb-1.2.1&q=85" alt="Visual Story Image 2: Abstract Colors" class="block w-full h-auto aspect-[4/3] object-cover filter grayscale rounded-lg shadow-lg hover:filter-none transition-all duration-300 ease-in-out">
-      </div>
-      <div class="w-full sm:w-1/2 md:w-1/3 p-2 md:p-3 lg:p-4">
-        <img src="https://images.unsplash.com/photo-1603091083798-7c62120169df?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTQzMA&ixlib=rb-1.2.1&q=85" alt="Visual Story Image 3: Artistic Detail" class="block w-full h-auto aspect-[4/3] object-cover filter grayscale rounded-lg shadow-lg hover:filter-none transition-all duration-300 ease-in-out">
-      </div>
-      <div class="w-full sm:w-1/2 md:w-1/3 p-2 md:p-3 lg:p-4">
-        <img src="https://images.unsplash.com/photo-1533198942439-2d69cfd_557ab?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTU5Mw&ixlib=rb-1.2.1&q=85" alt="Visual Story Image 4: Textured Surface" class="block w-full h-auto aspect-[4/3] object-cover filter grayscale rounded-lg shadow-lg hover:filter-none transition-all duration-300 ease-in-out">
-      </div>
-      <div class="w-full sm:w-1/2 md:w-1/3 p-2 md:p-3 lg:p-4">
-        <img src="https://images.unsplash.com/photo-1598690594129-f79eee68761f?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYপুরাMDkxOTY0OQ&ixlib=rb-1.2.1&q=85" alt="Visual Story Image 5: Geometric Patterns" class="block w-full h-auto aspect-[4/3] object-cover filter grayscale rounded-lg shadow-lg hover:filter-none transition-all duration-300 ease-in-out">
-      </div>
-      <div class="w-full sm:w-1/2 md:w-1/3 p-2 md:p-3 lg:p-4">
-        <img src="https://images.unsplash.com/photo-1564826240277-446fc710c830?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTk1Mg&ixlib=rb-1.2.1&q=85" alt="Visual Story Image 6: Light and Shadow" class="block w-full h-auto aspect-[4/3] object-cover filter grayscale rounded-lg shadow-lg hover:filter-none transition-all duration-300 ease-in-out">
-      </div>
-    </div>
-  </section>
+        // Text Content Div
+        const textDiv = document.createElement('div');
+        textDiv.className = 'w-full md:w-2/5 px-0 md:px-[2.5%] mb-8 md:mb-0';
+        textDiv.innerHTML = `
+          <div class="sticky top-6 py-4">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold m-0 leading-tight">${data.title}</h2>
+            <p class="mt-3 text-gray-600 text-base md:text-lg">${data.description}</p>
+          </div>
+        `;
+        twoColumnRow.appendChild(textDiv);
 
-</main>
+        // Gallery Div (for items next to text)
+        const galleryDiv = document.createElement('div');
+        galleryDiv.className = 'w-full md:w-3/5 flex flex-wrap';
+        if (data.gallery && data.gallery.length > 0) {
+            data.gallery.forEach(item => {
+                galleryDiv.appendChild(createMediaItem(item));
+            });
+        }
+        twoColumnRow.appendChild(galleryDiv);
+        mainFlexContainer.appendChild(twoColumnRow);
 
-<footer class="bg-gray-800 text-gray-300 text-center p-6 mt-auto">
-  <p class="text-sm">© 2025 Emin Devrim Fidan. All Rights Reserved.</p> <p class="text-xs mt-1">Exploring the Intersections of Art & Code</p>
-</footer>
+        // Additional Full-Width Gallery (for Story 4)
+        if (data.additionalGallery && data.additionalGallery.items && data.additionalGallery.items.length > 0) {
+            const additionalGalleryContainer = document.createElement('div');
+            additionalGalleryContainer.className = 'flex flex-wrap -m-2 md:-m-3 lg:-m-4 mt-8 md:mt-0'; // Added by user
+            data.additionalGallery.items.forEach(item => {
+                const itemWrapper = document.createElement('div');
+                itemWrapper.className = 'w-full sm:w-1/2 md:w-1/3 p-2 md:p-3 lg:p-4';
+                itemWrapper.appendChild(createMediaItem(item, true)); // Pass true for additional gallery styling
+                additionalGalleryContainer.appendChild(itemWrapper);
+            });
+            mainFlexContainer.appendChild(additionalGalleryContainer);
+        }
+        section.appendChild(mainFlexContainer);
+        return section;
+      }
 
+      function createMediaItem(item, isAdditionalGalleryItem = false) {
+        const itemWrapper = document.createElement('div');
+        // Default classes for primary gallery items
+        let wrapperClasses = 'p-3 md:p-4 lg:p-6 mb-8 sm:mb-10 md:mb-12';
+        if (item.layout === 'half') {
+            wrapperClasses = `w-full sm:w-1/2 ${wrapperClasses}`;
+        } else {
+            wrapperClasses = `w-full ${wrapperClasses}`;
+        }
+         // If it's an item for the additional gallery, specific wrapper classes are handled by its parent loop
+        if (isAdditionalGalleryItem) {
+             // For items directly in the additional gallery, their parent div already has padding.
+             // The media element itself will take full width of its parent (which is 1/3rd).
+            itemWrapper.className = 'w-full h-full'; // Ensure it fills the parent p-x div
+        } else {
+            itemWrapper.className = wrapperClasses;
+        }
+
+
+        if (item.type === 'image') {
+          const img = document.createElement('img');
+          img.src = item.src;
+          img.alt = item.alt;
+          img.className = 'block w-full h-auto object-cover filter grayscale hover:filter-none transition-all duration-300 ease-in-out rounded-lg shadow-lg';
+          if (item.layout === 'full' || isAdditionalGalleryItem) { // Full width images or additional gallery items
+            img.classList.add(isAdditionalGalleryItem ? 'aspect-[4/3]' : 'aspect-video', 'md:h-[500px]');
+          } else { // Half width images in primary gallery
+            img.classList.add('aspect-[4/3]', 'sm:aspect-square', 'md:aspect-[3/4]', 'lg:h-[500px]');
+          }
+          itemWrapper.appendChild(img);
+        } else if (item.type === 'youtube') {
+          const embedHolder = document.createElement('div');
+          embedHolder.className = 'yt-embed-holder'; // Uses specific CSS for background-like video
+          const iframe = document.createElement('iframe');
+          iframe.src = `https://www.youtube.com/embed/${item.videoId}?autoplay=1&mute=1&loop=1&controls=0&color=white&modestbranding=1&rel=0&playsinline=1&enablejsapi=1&playlist=${item.videoId}`;
+          iframe.title = item.title;
+          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+          iframe.setAttribute('allowfullscreen', '');
+          embedHolder.appendChild(iframe);
+          itemWrapper.appendChild(embedHolder);
+        }
+        return itemWrapper;
+      }
+
+      function createInterstitialSection(data) {
+        const section = document.createElement('section');
+        section.className = 'full-page-interstitial';
+        section.style.backgroundImage = `url('${data.backgroundImageUrl}')`;
+        section.innerHTML = `
+          <div class="absolute inset-0 bg-black opacity-30"></div>
+          <div class="relative z-10 p-8 md:p-12 lg:p-16 w-full md:w-1/2 lg:w-2/5 xl:w-1/3 bg-black bg-opacity-60 text-white rounded-lg ml-4 md:ml-8 lg:ml-16">
+            <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">${data.title}</h3>
+            <p class="text-base sm:text-lg">${data.text}</p>
+          </div>
+        `;
+        return section;
+      }
+
+      function createVisualGridSection(data) {
+        const section = document.createElement('section');
+        section.id = data.id;
+        section.className = 'py-[10vh] sm:py-[15vh] md:py-[20vh] px-4 sm:px-6 lg:px-8';
+        
+        let htmlContent = '';
+        if (data.title) {
+          htmlContent += `<h2 class="text-3xl sm:text-4xl md:text-5xl font-bold m-0 leading-tight text-center mb-12 md:mb-16">${data.title}</h2>`;
+        }
+        
+        const imageGrid = document.createElement('div');
+        imageGrid.className = 'flex flex-wrap -m-2 md:-m-3 lg:-m-4';
+        
+        data.images.forEach(imgData => {
+          const imgWrapper = document.createElement('div');
+          imgWrapper.className = 'w-full sm:w-1/2 md:w-1/3 p-2 md:p-3 lg:p-4';
+          imgWrapper.innerHTML = `
+            <img src="${imgData.src}" alt="${imgData.alt}" class="block w-full h-auto aspect-[4/3] object-cover filter grayscale rounded-lg shadow-lg hover:filter-none transition-all duration-300 ease-in-out">
+          `;
+          imageGrid.appendChild(imgWrapper);
+        });
+        section.innerHTML = htmlContent; // Add title if exists
+        section.appendChild(imageGrid); // Append the grid
+        return section;
+      }
+
+    });
+  </script>
 </body>
 </html>

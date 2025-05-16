@@ -1,0 +1,194 @@
+[
+  {
+    "type": "hero",
+    "title": "Welcome to the Gallery",
+    "subtitle": "Discover a collection of captivating visuals and explore the essence of beauty through different lenses."
+  },
+  {
+    "type": "story",
+    "id": "story-1",
+    "title": "Story One: The Awakening",
+    "description": "Climbing... A curated selection of pieces that challenge perception and invite contemplation. Each artwork tells a unique story of discovery.",
+    "gallery": [
+      {
+        "type": "image",
+        "src": "https://lh3.googleusercontent.com/pw/AP1GczO8QSFLyT7AbRndY8I5Piuq9L_vilNraYkxFm9bcT5e93QGu-YVzsC8F9ZYlonUDYcMHx8voxLzDxGaR2y_as9c8i7bvDAGILNQLsIfEcpI3Opu5275ssuqj04083joDKH0Fg3O2vKMVNfsHSB6MvJudw=w500-h364-s-no?authuser=0",
+        "alt": "Story 1 Image 1: Scenic landscape",
+        "layout": "half"
+      },
+      {
+        "type": "image",
+        "src": "https://lh3.googleusercontent.com/pw/AP1GczPD2XDY5rlhJWgOZJDE81xVyK38OR9RqJ_1x00hoiZIjg-qNu3WI9qaptRYaQye55fZbeo8nm5zqfoCJt3PTtCUlhC266W1_T5ZWe7MNfr0PjFoTkWqaYTFeFzBiUxqcRu-AE2VrNjZ-RiaZ7ZzveqjNg=w500-h323-s-no?authuser=0",
+        "alt": "Story 1 Image 2: Abstract art",
+        "layout": "half"
+      },
+      {
+        "type": "image",
+        "src": "https://lh3.googleusercontent.com/pw/AP1GczNsLkJFZKT1Yj2fu_Sn-o2b3bPtwV2gf9EaLyyTM-0U-S3rFTY5fCUHPkCbvQAIeCfY5sEmQXoAX6-9ZM_Oz5fVZRbx4EYY8KBt_ZrbjLlfNRGj4KZXa4OA8rI1YmKzbTqG3ft0t8fJ3NoPpjdowYNMJQ=w1024-h768-s-no?authuser=0",
+        "alt": "Story 1 Image 3: Different abstract art",
+        "layout": "full"
+      }
+    ]
+  },
+  {
+    "type": "interstitial",
+    "backgroundImageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOTn6Pi61HiZhFe9NBx56mkkXLSgX13SiE2JrW6RD_BjgnaS-lLMqcM97VG9ubuJYx6SJl6HnxjxCGxgiJZb59Ji0MUlsjznetIALwLTrSPrijYvKVRIm6ehHtbl-g_U7D2CCeC8bnVS21PWdBs4PlM7w=w1024-h768-s-no?authuser=0",
+    "title": "A Moment of Reflection",
+    "text": "Pause and ponder. The journey unfolds in unexpected ways, revealing layers of meaning."
+  },
+  {
+    "type": "story",
+    "id": "story-2",
+    "title": "Story Two: The Dance of Light",
+    "description": "Youth Work... This collection explores the multifaceted nature of beauty, showcasing diverse interpretations and styles from various artists, including the moving image.",
+    "gallery": [
+      {
+        "type": "youtube",
+        "videoId": "l9_4VeoZwBY",
+        "title": "YouTube video player for Story 2",
+        "layout": "full"
+      },
+      {
+        "type": "image",
+        "src": "https://lh3.googleusercontent.com/pw/AP1GczPFz7IT6APzrEqD9btIUrImGM5RlckWpL0L0SHqKNqGdCBsT3LFMo7KMTRB5-MFjiaDeN58zc_8sE0NSBW01fVvhn-TOoLvRsHM7pEH3XjoI074mB7kmRGaQ9AbGDu-Y7XDYI3z0QD-AmOIbhPLKzl7kw=w1048-h791-s-no?authuser=0",
+        "alt": "Story 2 Image 1: Abstract art",
+        "layout": "half"
+      },
+      {
+        "type": "image",
+        "src": "https://lh3.googleusercontent.com/pw/AP1GczPjOkPtgjXiZHKtjJmTvtekuyUTQXZJCrVfNub2Ql3gP2CFRQHQxv-p07TkZ1jKOkiYbtINrTIC99ocSUqe_UrD_rUpLxPs3NYYlRv_oOQk9ativRGSrangfkivJNW-7rwZxk0WBtHH0nqlENkcIsyRJA=w1187-h791-s-no?authuser=0",
+        "alt": "Story 2 Image 2: Different abstract art",
+        "layout": "half"
+      },
+      {
+        "type": "image",
+        "src": "https://lh3.googleusercontent.com/pw/AP1GczMHK60-m9FpZkGxydmIxDxdvR4be52HJOpuYaKI88xY16Yf10J-chhxEd0u7IIdjWNdHiq7GwWrqA3aV10mGc5kh6fpng-e1ZnXai6UjmOfrARRWwG2OFOYpQ8XvSmedldWnV1_LdKfOHIFcfoitW0ocQ=w500-h372-s-no-gm?authuser=0",
+        "alt": "Story 2 Image 1: Abstract art",
+        "layout": "half"
+      },
+      {
+        "type": "image",
+        "src": "https://lh3.googleusercontent.com/pw/AP1GczPjOkPtgjXiZHKtjJmTvtekuyUTQXZJCrVfNub2Ql3gP2CFRQHQxv-p07TkZ1jKOkiYbtINrTIC99ocSUqe_UrD_rUpLxPs3NYYlRv_oOQk9ativRGSrangfkivJNW-7rwZxk0WBtHH0nqlENkcIsyRJA=w1187-h791-s-no?authuser=0",
+        "alt": "Story 2 Image 2: Different abstract art",
+        "layout": "half"
+      }
+    ]
+  },
+  {
+    "type": "story",
+    "id": "story-3",
+    "title": "Story Three: Echoes of Form",
+    "description": "Exploring the interplay of shapes, structures, and the spaces in between. Each piece resonates with a silent narrative.",
+    "gallery": [
+      {
+        "type": "youtube",
+        "videoId": "l9_4VeoZwBY",
+        "title": "YouTube video player for Story 3",
+        "layout": "full"
+      },
+      {
+        "type": "image",
+        "src": "https://images.unsplash.com/photo-1564826240277-446fc710c830?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTk1Mg&ixlib=rb-1.2.1&q=85",
+        "alt": "Story 3 Image 1: Abstract form",
+        "layout": "half"
+      },
+      {
+        "type": "image",
+        "src": "https://images.unsplash.com/photo-1609579390917-d5d29927d965?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkyMDAxMQ&ixlib=rb-1.2.1&q=85",
+        "alt": "Story 3 Image 2: Another abstract form",
+        "layout": "half"
+      }
+    ]
+  },
+  {
+    "type": "interstitial",
+    "backgroundImageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPO-xbaEsjcnMXxCLhrC2YXnEBd7IWDr8Pkvichm61KlrutIIeGnT00qN-nr0Jv_IEPMC8pIZggse0ZtBTAAVHSV6grahzHTW8CS8_U5CvPBBgyaJT7Fl09DONSqBmcECXu4FK24TGBwCxJCXCAWtd9ug=w1185-h788-s-no-gm?authuser=0",
+    "title": "Whispers of the Unseen",
+    "text": "Beyond the visible, a world of subtle energies and hidden connections awaits discovery."
+  },
+  {
+    "type": "story",
+    "id": "story-4",
+    "title": "Story Four: Chromatic Dreams",
+    "description": "A journey through the spectrum of color, where hues evoke emotions and paint vivid mental landscapes.",
+    "gallery": [
+      {
+        "type": "image",
+        "src": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+        "alt": "Story 4 Image 1: Colorful landscape",
+        "layout": "half"
+      },
+      {
+        "type": "image",
+        "src": "https://images.unsplash.com/photo-1604397653091-f08b42e22bb9?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTQ3Mg&ixlib=rb-1.2.1&q=85",
+        "alt": "Story 4 Image 2: Vibrant abstract",
+        "layout": "half"
+      },
+      {
+        "type": "youtube",
+        "videoId": "YOUR_VIDEO_ID_HERE_S4",
+        "title": "YouTube video player for Story 4",
+        "layout": "full"
+      }
+    ],
+    "additionalGallery": {
+        "layoutType": "gridThree",
+        "items": [
+            {
+                "type": "image",
+                "src": "https://images.unsplash.com/photo-1603091083798-7c62120169df?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTQzMA&ixlib=rb-1.2.1&q=85",
+                "alt": "Story 4 Additional Image 1"
+            },
+            {
+                "type": "image",
+                "src": "https://images.unsplash.com/photo-1533198942439-2d69cfd_557ab?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTU5Mw&ixlib=rb-1.2.1&q=85",
+                "alt": "Story 4 Additional Image 2"
+            },
+            {
+                "type": "image",
+                "src": "https://images.unsplash.com/photo-1598690594129-f79eee68761f?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTY0OQ&ixlib=rb-1.2.1&q=85",
+                "alt": "Story 4 Additional Image 3"
+            }
+        ]
+    }
+  },
+  {
+    "type": "story",
+    "id": "story-5",
+    "title": "Story Five: The Infinite Horizon",
+    "description": "Gazing towards the future, where possibilities are endless and the journey of discovery continues.",
+    "gallery": [
+      {
+        "type": "image",
+        "src": "https://images.unsplash.com/photo-1603091083798-7c62120169df?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTQzMA&ixlib=rb-1.2.1&q=85",
+        "alt": "Story 5 Image 1: Horizon abstract",
+        "layout": "half"
+      },
+      {
+        "type": "image",
+        "src": "https://images.unsplash.com/photo-1564826240277-446fc710c830?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTk1Mg&ixlib=rb-1.2.1&q=85",
+        "alt": "Story 5 Image 2: Light and Shadow",
+        "layout": "half"
+      },
+      {
+        "type": "image",
+        "src": "https://images.unsplash.com/photo-1533198942439-2d69cfd_557ab?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTU5Mw&ixlib=rb-1.2.1&q=85",
+        "alt": "Story 5 Image 3: Future abstract",
+        "layout": "full"
+      }
+    ]
+  },
+  {
+    "type": "visualGrid",
+    "id": "story-6-visuals",
+    "title": "Visual Interlude: A Tapestry of Moments",
+    "images": [
+      {"src": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", "alt": "Visual Story Image 1: Scenic Nature"},
+      {"src": "https://images.unsplash.com/photo-1604397653091-f08b42e22bb9?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTQ3Mg&ixlib=rb-1.2.1&q=85", "alt": "Visual Story Image 2: Abstract Colors"},
+      {"src": "https://images.unsplash.com/photo-1603091083798-7c62120169df?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTQzMA&ixlib=rb-1.2.1&q=85", "alt": "Visual Story Image 3: Artistic Detail"},
+      {"src": "https://images.unsplash.com/photo-1533198942439-2d69cfd_557ab?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTU5Mw&ixlib=rb-1.2.1&q=85", "alt": "Visual Story Image 4: Textured Surface"},
+      {"src": "https://images.unsplash.com/photo-1598690594129-f79eee68761f?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTY0OQ&ixlib=rb-1.2.1&q=85", "alt": "Visual Story Image 5: Geometric Patterns"},
+      {"src": "https://images.unsplash.com/photo-1564826240277-446fc710c830?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDkxOTk1Mg&ixlib=rb-1.2.1&q=85", "alt": "Visual Story Image 6: Light and Shadow"}
+    ]
+  }
+]

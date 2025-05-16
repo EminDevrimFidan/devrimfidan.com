@@ -397,12 +397,42 @@ const destinationsData = [
         "continent": "Asia",
         "image": "https://source.unsplash.com/800x600/?Karachi,Pakistan",
         "status": "visited",
-        "year": 2024,
+        "year": 2018,
         "transport": "flight",
         "duration": "1 week",
         "link": "https://www.google.com/search?q=tourism+Karachi+Pakistan",
         "notes": "Visited Karachi, a fascinating city.",
         "detailedNotes": "A memorable trip to Karachi, Pakistan. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 24.8607, "lng": 67.0011 }
+    },
+    {
+        "id": "Islamabad",
+        "name": "Islamabad",
+        "country": "Pakistan",
+        "continent": "Asia",
+        "image": "https://source.unsplash.com/800x600/?Islamabad,Pakistan",
+        "status": "visited",
+        "year": 2018,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Islamabad+Pakistan",
+        "notes": "Visited Islamabad, a fascinating city.",
+        "detailedNotes": "A memorable trip to Islamabad, Pakistan. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 33.6844, "lng": 73.0479 }
+       }, 
+        {
+        "id": "washtington_dc",
+        "name": "Washington DC",
+        "country": "United States",
+        "continent": "North America",
+        "image": "https://source.unsplash.com/800x600/?Washington,DC",
+        "status": "visited",
+        "year": 2011,
+        "transport": "flight",
+        "duration": "2 weeks",
+        "link": "https://www.nps.gov/state/dc/index.htm",
+        "notes": "Visited Washington DC, a fascinating city.",
+        "detailedNotes": "A memorable trip to Washington DC, United States. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 38.9072, "lng": -77.0369 }
     }
   ]
