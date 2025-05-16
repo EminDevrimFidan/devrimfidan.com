@@ -90,7 +90,7 @@ const destinationsData = [
         "detailedNotes": "Tokyo is Japan's busy capital that mixes the ultramodern and the traditional. Want to experience the cherry blossom season, visit Senso-ji Temple, explore the Shibuya Crossing, and enjoy authentic Japanese cuisine. Hoping to take a day trip to Mt. Fuji and experience a traditional onsen. Need to learn some basic Japanese phrases before the trip.",
         "coordinates": { "lat": 35.6762, "lng": 139.6503 }
     },
-{
+    {
     "id": "frankfurt",
     "name": "Frankfurt",
     "country": "Germany",
@@ -104,7 +104,7 @@ const destinationsData = [
     "notes": "Great food and culture, loved the museums",
     "detailedNotes": "Frankfurt is a major financial hub in Germany. The Römer, a medieval building, was stunning. The Städel Museum had an impressive collection of art. Enjoyed walking along the River Main and visiting the Kleinmarkthalle for local food. The skyline was beautiful at night. Used the U-Bahn for easy transportation around the city.",
     "coordinates": { "lat": 50.1109, "lng": 8.6821 }
- },
+    },
     {
         "id": "paris",
         "name": "Paris",
@@ -330,7 +330,6 @@ const destinationsData = [
         "detailedNotes": "A memorable trip to Amritsar, India. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 31.6340, "lng": 74.8723 }
     },
-
     {
         "id": "lahore",
         "name": "Lahore",
@@ -405,8 +404,8 @@ const destinationsData = [
         "notes": "Visited Islamabad, a fascinating city.",
         "detailedNotes": "A memorable trip to Islamabad, Pakistan. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 33.6844, "lng": 73.0479 }
-       }, 
-        {
+    }, 
+    {
         "id": "washtington_dc",
         "name": "Washington DC",
         "country": "United States",
@@ -452,7 +451,6 @@ const destinationsData = [
         "detailedNotes": "A memorable trip to Raleigh, North Carolina. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 35.7796, "lng": -78.6382 }
     },
-
     {
         "id": "casablanca",
         "name": "Casablanca",
@@ -483,7 +481,8 @@ const destinationsData = [
         "detailedNotes": "A memorable trip to Marrakech, Morocco. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 31.6295, "lng": -7.9811 }
     },
-    {   "id": "jerusalem",
+    {
+        "id": "jerusalem",
         "name": "Jerusalem",
         "country": "Israel",
         "continent": "Asia",
@@ -512,7 +511,7 @@ const destinationsData = [
         "detailedNotes": "A memorable trip to Doha, Qatar. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 25.276987, "lng": 51.520008 }
     },
-        {
+    {
         "id": "abuja",
         "name": "Abuja",
         "country": "Nigeria",
@@ -527,7 +526,8 @@ const destinationsData = [
         "detailedNotes": "A memorable trip to Abuja, Nigeria. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 9.0765, "lng": 7.3986 }
     },
-    {   "id": "Kano",
+    {
+        "id": "Kano",
         "name": "Kano",
         "country": "Nigeria",
         "continent": "Africa",
@@ -541,7 +541,8 @@ const destinationsData = [
         "detailedNotes": "A memorable trip to Kano, Nigeria. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 12.0022, "lng": 8.5919 }
     },
-    {  "id": "kaduna",
+    {
+        "id": "kaduna",
         "name": "Kadamuna",
         "country": "Nigeria",
         "continent": "Africa",
@@ -555,7 +556,6 @@ const destinationsData = [
         "detailedNotes": "A memorable trip to Kaduna, Nigeria. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 10.5102, "lng": 7.4383 }
     },
-
     {
         "id": "lagos",
         "name": "Lagos",
@@ -571,7 +571,7 @@ const destinationsData = [
         "detailedNotes": "A memorable trip to Lagos, Nigeria. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 6.5244, "lng": 3.3792 }
     },
-      {
+    {
         "id": "yaounde",
         "name": "Yaounde",
         "country": "Cameroon",
@@ -587,7 +587,6 @@ const destinationsData = [
         "coordinates": { "lat": 3.8480, "lng": 11.5021 }
    
     },
-
     {
         "id": "hamburg",
         "name": "Hamburg",
@@ -603,7 +602,6 @@ const destinationsData = [
         "detailedNotes": "A memorable trip to Hamburg, Germany. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 53.5511, "lng": 9.9937 }
     },
-
     {
         "id": "berlin",
         "name": "Berlin",
@@ -666,7 +664,7 @@ const destinationsData = [
         "coordinates": { "lat": 51.5074, "lng": -0.1278 }
 
     },
-     {  
+    {
         "id": "Oulu",
         "name": "Oulu",
         "country": "Finland",
@@ -696,7 +694,7 @@ const destinationsData = [
         "detailedNotes": "A memorable trip to Helsinki, Finland. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 60.1695, "lng": 24.9354 }
     },
-        {
+    {
         "id": "bologna",
         "name": "Bologna",
         "country": "Italy",
@@ -955,7 +953,6 @@ const destinationsData = [
         "detailedNotes": "A memorable trip to Oslo, Norway. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 59.9139, "lng": 10.7522 }
     },
-
     {
         "id": "sofia",
         "name": "Sofia",
@@ -1317,8 +1314,4 @@ const destinationsData = [
         "detailedNotes": "A memorable trip to Odense, Denmark. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 55.4038, "lng": 10.4024 }
     }
-
-
-
-
   ]
