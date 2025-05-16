@@ -1208,7 +1208,84 @@ const destinationsData = [
         "notes": "Visited Caracas, a fascinating city.",
         "detailedNotes": "A memorable trip to Caracas, Venezuela. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 10.4880, "lng": -66.8983 }
+    },
+        {
+        "id": "duhok",
+        "name": "Duhok",
+        "country": "Iraq",
+        "continent": "Asia",
+        "image": "https://source.unsplash.com/800x600/?Duhok,Iraq",
+        "status": "visited",
+        "year": 2019,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Duhok+Iraq",
+        "notes": "Visited Duhok, a fascinating city.",
+        "detailedNotes": "A memorable trip to Duhok, Iraq. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 36.8722, "lng": 42.9904 }   
+
+    },
+    {
+        "id": "suleymaniye",
+        "name": "Suleymaniye",
+        "country": "Iraq",
+        "continent": "Asia",
+        "image": "https://source.unsplash.com/800x600/?Suleymaniye,Iraq",
+        "status": "visited",
+        "year": 2019,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Suleymaniye+Iraq",
+        "notes": "Visited Suleymaniye, a fascinating city.",
+        "detailedNotes": "A memorable trip to Suleymaniye, Iraq. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 35.5633, "lng": 45.4333 }   
+    },
+    {
+        "id": "aalborg",
+        "name": "Aalborg",
+        "country": "Denmark",
+        "continent": "Europe",
+        "image": "https://source.unsplash.com/800x600/?Aalborg,Denmark",
+        "status": "visited",
+        "year": 2009,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Aalborg+Denmark",
+        "notes": "Visited Aalborg, a fascinating city.",
+        "detailedNotes": "A memorable trip to Aalborg, Denmark. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 57.0489, "lng": 9.9217 }
+    },
+    {
+        "id": "skagen",
+        "name": "Skagen",
+        "country": "Denmark",
+        "continent": "Europe",
+        "image": "https://source.unsplash.com/800x600/?Skagen,Denmark",
+        "status": "visited",
+        "year": 2009,
+        "transport": "bus",
+        "duration": "2 days",
+        "link": "https://www.google.com/search?q=tourism+Skagen+Denmark",
+        "notes": "Visited Skagen, a fascinating city.",
+        "detailedNotes": "A memorable trip to Skagen, Denmark. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 57.7149, "lng": 10.5886 }
+    },
+    {
+        "id": "odense",
+        "name": "Odense",
+        "country": "Denmark",
+        "continent": "Europe",
+        "image": "https://source.unsplash.com/800x600/?Odense,Denmark",
+        "status": "visited",
+        "year": 2009,
+        "transport": "bus",
+        "duration": "2 days",
+        "link": "https://www.google.com/search?q=tourism+Odense+Denmark",
+        "notes": "Visited Odense, a fascinating city.",
+        "detailedNotes": "A memorable trip to Odense, Denmark. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 55.4038, "lng": 10.4024 }
     }
+
 
 
 
