@@ -1,5 +1,4 @@
-// Destinations data
-const destinationsData = [
+[
     {
         "id": "singapore",
         "name": "Singapore",
@@ -1222,7 +1221,7 @@ const destinationsData = [
         "notes": "Visited Caracas, a fascinating city.",
         "detailedNotes": "A memorable trip to Caracas, Venezuela. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 10.4880, "lng": -66.8983 }
-    }
+    },
     {
         "id": "tunis",
         "name": "Tunis",
