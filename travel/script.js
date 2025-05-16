@@ -215,7 +215,7 @@ function renderDestinations(destinationsToRender) {
                         ${destination.year ? `<span class="ml-2 flex-shrink-0 px-1.5 py-0.5 bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded text-xs font-medium">${destination.year}</span>` : ''}
                     </div>
                     <p class="text-xs text-gray-600 dark:text-gray-300 mt-1"> <i class="fas ${destination.transport === 'flight' ? 'fa-plane' : (destination.transport === 'train' ? 'fa-train' : 'fa-car')} mr-1 text-gray-500 dark:text-gray-400"></i> ${destination.duration || 'N/A'} </p>
-                    <p class="hidden text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2" title="${destination.notes || ''}">${destination.notes || ''}</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2" title="${destination.notes || ''}">${destination.notes || ''}</p>
                 </div>
             </div>`;
         item.addEventListener('click', () => selectDestination(destination.id));
