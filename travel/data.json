@@ -166,21 +166,6 @@ const destinationsData = [
         "coordinates": { "lat": 41.9028, "lng": 12.4964 }
     },
     {
-        "id": "cairo",
-        "name": "Cairo",
-        "country": "Egypt",
-        "continent": "Africa",
-        "image": "https://images.unsplash.com/photo-1572252009286-268acec5ca0a",
-        "status": "wishlist",
-        "year": 2026,
-        "transport": "flight",
-        "duration": "8 days",
-        "link": "https://egypt.travel/en",
-        "notes": "Really want to see the pyramids and Nile",
-        "detailedNotes": "Cairo is the capital of Egypt and one of the largest cities in Africa. The main reason to visit is to see the Pyramids of Giza and the Sphinx. Want to explore the Egyptian Museum, Khan el-Khalili bazaar, and take a cruise on the Nile River. Considering adding on a visit to Luxor and the Valley of the Kings. Need to research the best time to visit to avoid extreme heat and learn about local customs and dress code.",
-        "coordinates": { "lat": 30.0444, "lng": 31.2357 }
-    },
-    {
         "id": "sydney",
         "name": "Sydney",
         "country": "Australia",
@@ -436,6 +421,38 @@ const destinationsData = [
         "detailedNotes": "A memorable trip to Washington DC, United States. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 38.9072, "lng": -77.0369 }
     },
+    {
+        "id": "charlottesville",
+        "name": "Charlottesville",
+        "country": "United States",
+        "continent": "North America",
+        "image": "https://source.unsplash.com/800x600/?Charlottesville,Virginia",
+        "status": "visited",
+        "year": 2011,
+        "transport": "flight",
+        "duration": "2 weeks",
+        "link": "https://www.nps.gov/state/va/index.htm",
+        "notes": "Visited Charlottesville, a fascinating city.",
+        "detailedNotes": "A memorable trip to Charlottesville, Virginia. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 38.0336, "lng": -78.5042 }
+
+    },
+    {
+        "id": "raleigh",
+        "name": "Raleigh",
+        "country": "United States",
+        "continent": "North America",
+        "image": "https://source.unsplash.com/800x600/?Raleigh,North Carolina",
+        "status": "visited",
+        "year": 2011,
+        "transport": "flight",
+        "duration": "2 weeks",
+        "link": "https://www.nps.gov/state/nc/index.htm",
+        "notes": "Visited Raleigh, a fascinating city.",
+        "detailedNotes": "A memorable trip to Raleigh, North Carolina. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 35.7796, "lng": -78.6382 }
+    },
+
     {
         "id": "casablanca",
         "name": "Casablanca",
@@ -1209,6 +1226,98 @@ const destinationsData = [
         "detailedNotes": "A memorable trip to Caracas, Venezuela. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 10.4880, "lng": -66.8983 }
     }
+    {
+        "id": "tunis",
+        "name": "Tunis",
+        "country": "Tunisia",
+        "continent": "Africa",
+        "image": "https://source.unsplash.com/800x600/?Tunis,Tunisia",
+        "status": "visited",
+        "year": 2019,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Tunis+Tunisia",
+        "notes": "Visited Tunis, a fascinating city.",
+        "detailedNotes": "A memorable trip to Tunis, Tunisia. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 36.8065, "lng": 10.1815 }  
+    },
+    {
+        "id": "duhok",
+        "name": "Duhok",
+        "country": "Iraq",
+        "continent": "Asia",
+        "image": "https://source.unsplash.com/800x600/?Duhok,Iraq",
+        "status": "visited",
+        "year": 2019,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Duhok+Iraq",
+        "notes": "Visited Duhok, a fascinating city.",
+        "detailedNotes": "A memorable trip to Duhok, Iraq. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 36.8722, "lng": 42.9904 }   
+
+    },
+    {
+        "id": "suleymaniye",
+        "name": "Suleymaniye",
+        "country": "Iraq",
+        "continent": "Asia",
+        "image": "https://source.unsplash.com/800x600/?Suleymaniye,Iraq",
+        "status": "visited",
+        "year": 2019,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Suleymaniye+Iraq",
+        "notes": "Visited Suleymaniye, a fascinating city.",
+        "detailedNotes": "A memorable trip to Suleymaniye, Iraq. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 35.5633, "lng": 45.4333 }   
+    },
+    {
+        "id": "aalborg",
+        "name": "Aalborg",
+        "country": "Denmark",
+        "continent": "Europe",
+        "image": "https://source.unsplash.com/800x600/?Aalborg,Denmark",
+        "status": "visited",
+        "year": 2009,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Aalborg+Denmark",
+        "notes": "Visited Aalborg, a fascinating city.",
+        "detailedNotes": "A memorable trip to Aalborg, Denmark. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 57.0489, "lng": 9.9217 }
+    },
+    {
+        "id": "skagen",
+        "name": "Skagen",
+        "country": "Denmark",
+        "continent": "Europe",
+        "image": "https://source.unsplash.com/800x600/?Skagen,Denmark",
+        "status": "visited",
+        "year": 2009,
+        "transport": "bus",
+        "duration": "2 days",
+        "link": "https://www.google.com/search?q=tourism+Skagen+Denmark",
+        "notes": "Visited Skagen, a fascinating city.",
+        "detailedNotes": "A memorable trip to Skagen, Denmark. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 57.7149, "lng": 10.5886 }
+    },
+    {
+        "id": "odense",
+        "name": "Odense",
+        "country": "Denmark",
+        "continent": "Europe",
+        "image": "https://source.unsplash.com/800x600/?Odense,Denmark",
+        "status": "visited",
+        "year": 2009,
+        "transport": "bus",
+        "duration": "2 days",
+        "link": "https://www.google.com/search?q=tourism+Odense+Denmark",
+        "notes": "Visited Odense, a fascinating city.",
+        "detailedNotes": "A memorable trip to Odense, Denmark. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 55.4038, "lng": 10.4024 }
+    },
+
 
 
 
