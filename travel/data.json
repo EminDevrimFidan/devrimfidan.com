@@ -90,6 +90,21 @@ const destinationsData = [
         "detailedNotes": "Tokyo is Japan's busy capital that mixes the ultramodern and the traditional. Want to experience the cherry blossom season, visit Senso-ji Temple, explore the Shibuya Crossing, and enjoy authentic Japanese cuisine. Hoping to take a day trip to Mt. Fuji and experience a traditional onsen. Need to learn some basic Japanese phrases before the trip.",
         "coordinates": { "lat": 35.6762, "lng": 139.6503 }
     },
+{
+    "id": "frankfurt",
+    "name": "Frankfurt",
+    "country": "Germany",
+    "continent": "Europe",
+    "image": "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0",
+    "status": "visited",
+    "year": 2006,
+    "transport": "flight",
+    "duration": "3 days",
+    "link": "https://www.frankfurt-tourismus.de/en",
+    "notes": "Great food and culture, loved the museums",
+    "detailedNotes": "Frankfurt is a major financial hub in Germany. The Römer, a medieval building, was stunning. The Städel Museum had an impressive collection of art. Enjoyed walking along the River Main and visiting the Kleinmarkthalle for local food. The skyline was beautiful at night. Used the U-Bahn for easy transportation around the city.",
+    "coordinates": { "lat": 50.1109, "lng": 8.6821 }
+ },
     {
         "id": "paris",
         "name": "Paris",
@@ -97,7 +112,7 @@ const destinationsData = [
         "continent": "Europe",
         "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34",
         "status": "visited",
-        "year": 2021,
+        "year": 2009,
         "transport": "train",
         "duration": "5 days",
         "link": "https://en.parisinfo.com/",
@@ -434,5 +449,68 @@ const destinationsData = [
         "notes": "Visited Washington DC, a fascinating city.",
         "detailedNotes": "A memorable trip to Washington DC, United States. Explored the city, its vibrant culture, and historical landmarks.",
         "coordinates": { "lat": 38.9072, "lng": -77.0369 }
-    }
+    },
+    {
+        "id": "casablanca",
+        "name": "Casablanca",
+        "country": "Morocco",
+        "continent": "Africa",
+        "image": "https://source.unsplash.com/800x600/?Casablanca,Morocco",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Casablanca+Morocco",
+        "notes": "Visited Casablanca, a fascinating city.",
+        "detailedNotes": "A memorable trip to Casablanca, Morocco. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 33.5731, "lng": -7.5898 }
+    },
+    {
+        "id": "marakech",
+        "name": "Marrakech",
+        "country": "Morocco",
+        "continent": "Africa",
+        "image": "https://source.unsplash.com/800x600/?Marrakech,Morocco",
+        "status": "visited",
+        "year": 2024,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Marrakech+Morocco",
+        "notes": "Visited Marrakech, a fascinating city.",
+        "detailedNotes": "A memorable trip to Marrakech, Morocco. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 31.6295, "lng": -7.9811 }
+    },
+    {   "id": "jerusalem",
+        "name": "Jerusalem",
+        "country": "Israel",
+        "continent": "Asia",
+        "image": "https://source.unsplash.com/800x600/?Jerusalem,Israel",
+        "status": "visited",
+        "year": 209,
+        "transport": "flight",
+        "duration": "2 weeks",
+        "link": "https://www.google.com/search?q=tourism+Jerusalem+Israel",
+        "notes": "Visited Jerusalem, a fascinating city.",
+        "detailedNotes": "A memorable trip to Jerusalem",
+        "coordinates": { "lat": 31.7683, "lng": 35.2137 }
+    },
+    {
+        "id": "doha",
+        "name": "Doha",
+        "country": "Qatar",
+        "continent": "Asia",
+        "image": "https://source.unsplash.com/800x600/?Doha,Qatar",
+        "status": "visited",
+        "year": 2018,
+        "transport": "flight",
+        "duration": "1 week",
+        "link": "https://www.google.com/search?q=tourism+Doha+Qatar",
+        "notes": "Visited Doha, a fascinating city.",
+        "detailedNotes": "A memorable trip to Doha, Qatar. Explored the city, its vibrant culture, and historical landmarks.",
+        "coordinates": { "lat": 25.276987, "lng": 51.520008 }
+    }    
+
+
+
+
   ]
