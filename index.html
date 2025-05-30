@@ -1,253 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <!-- Page Information
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Emin Devrim Fidan</title>
+  <title>Redirecting to Emin Devrim Fidan</title>
   <meta name="description" content="Experienced international student recruitment and marketing technologies professional. " />
   <meta name="author" content="Emin Devrim Fidan">
-  <link rel="canonical" href="https://devrimfidan.com/" />
+  <link rel="canonical" href="https://emin.devrimfidan.com/" />
+  
+  <!-- Redirect using meta refresh -->
+  <meta http-equiv="refresh" content="0; url=https://emin.devrimfidan.com">
+  
+  <!-- JavaScript redirect as fallback -->
+  <script>
+    window.location.href = "https://emin.devrimfidan.com";
+  </script>
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);} // Defines gtag globally
-
-    // 2. Set Google Consent Mode v2 Default Settings
-    //    This MUST be done BEFORE the GTM script.
-    gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': 'denied',
-        'functionality_storage': 'denied', 
-        'personalization_storage': 'denied',
-        'security_storage': 'denied',      
-        'wait_for_update': 500 
-    });
-    // console.log('Default consent set for devrimfidan.com'); 
-  </script>
-
-
-
-   <!-- Google Tag Manager
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NWDSNCMN');</script>
-  <!-- End Google Tag Manager -->
-  <script>
-    function acceptSiteCookies() {
-      gtag('consent', 'update', {
-        'ad_storage': 'granted',
-        'analytics_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted',
-        'functionality_storage': 'granted',
-        'personalization_storage': 'granted',
-        'security_storage': 'granted' 
-      });
-      var banner = document.getElementById("site-cookie-consent-banner-simple");
-      if (banner) banner.style.display = "none";
-      try {
-        localStorage.setItem('devrimfidan_actual_cookie_consent_status', 'granted');
-      } catch (e) {
-        console.warn('Could not save consent status to localStorage:', e);
-      }
-    }
-
-    function rejectSiteCookies() {
-      gtag('consent', 'update', {
-        'ad_storage': 'denied',
-        'analytics_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied'
-      });
-      var banner = document.getElementById("site-cookie-consent-banner-simple");
-      if (banner) banner.style.display = "none";
-      try {
-        localStorage.setItem('devrimfidan_actual_cookie_consent_status', 'denied');
-      } catch (e) {
-        console.warn('Could not save consent status to localStorage:', e);
-      }
-    }
-
-    function checkInitialConsent() {
-      var banner = document.getElementById("site-cookie-consent-banner-simple");
-      if (!banner) return;
-
-      try {
-        const consentStatus = localStorage.getItem('devrimfidan_actual_cookie_consent_status');
-        
-        if (consentStatus === 'granted' || consentStatus === 'denied') {
-          banner.style.display = "none"; 
-
-          if (consentStatus === 'granted') {
-             gtag('consent', 'update', {
-                'ad_storage': 'granted', 
-                'analytics_storage': 'granted', 
-                'ad_user_data': 'granted',
-                'ad_personalization': 'granted', 
-                'functionality_storage': 'granted',
-                'personalization_storage': 'granted', 
-                'security_storage': 'granted'
-             });
-          } else { 
-             gtag('consent', 'update', {
-                'ad_storage': 'denied', 
-                'analytics_storage': 'denied', 
-                'ad_user_data': 'denied',
-                'ad_personalization': 'denied'
-             });
-          }
-        } else {
-          banner.style.display = "block"; // Or "flex" depending on desired layout with simple CSS
-        }
-      } catch (e) {
-        console.warn('Could not access localStorage for consent status:', e);
-        banner.style.display = "block"; // Or "flex"
-      }
-    }
-    window.addEventListener('DOMContentLoaded', checkInitialConsent);
-  </script>
-  <!-- Open Graph tags -->
-  <meta property="og:title" content="Emin Devrim Fidan" />
-  <meta property="og:description" content="Experienced international student recruitment and marketing technologies professional." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://devrimfidan.com" />
-  <meta property="og:image" content="images/profile.png" />
-
-
-  <!-- Twitter tags -->
-  <meta name="twitter:site" content="@emindevrimfidan" />
-  <meta name="twitter:title" content="Emin Devrim Fidan" />
-  <meta name="twitter:description" content="Experienced international student recruitment and marketing technologies professional." />
-
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-    <style>
-    /* Simple styles for the new cookie banner */
-    #site-cookie-consent-banner-simple {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: #333; /* Dark background */
-      color: white;
-      padding: 15px;
-      box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
-      z-index: 1000;
-      text-align: center;
-    }
-    #site-cookie-consent-banner-simple p {
-      margin: 0 0 10px 0;
-      font-size: 0.9em;
-    }
-    #site-cookie-consent-banner-simple button {
-      background-color: #5cb85c; /* Green for accept */
-      color: white;
-      border: none;
-      padding: 8px 15px;
-      margin: 0 5px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 0.9em;
-    }
-    #site-cookie-consent-banner-simple button.reject {
-      background-color: #d9534f; /* Red for reject */
-    }
-    #site-cookie-consent-banner-simple button:hover {
-      opacity: 0.9;
-    }
-    /* Responsive adjustments for simple banner */
-    @media (min-width: 600px) {
-      #site-cookie-consent-banner-simple {
-        display: flex; /* Use flex for larger screens */
-        justify-content: space-between;
-        align-items: center;
-        text-align: left;
-      }
-      #site-cookie-consent-banner-simple p {
-        margin: 0 15px 0 0; /* Add some margin to the right of the text */
-        flex-grow: 1; /* Allow text to take available space */
-      }
-      #site-cookie-consent-banner-simple div { /* Container for buttons */
-        white-space: nowrap; /* Prevent buttons from wrapping on small flex containers */
-      }
-    }
-  </style>
-
-    <!-- Themes:
-            Auto:   css/skeleton-auto.css
-            Light:  css/skeleton-light.css
-            Dark:   css/skeleton-dark.css
-     -->
-    <link rel="stylesheet" href="css/skeleton-auto.css">
-
-    <!-- Brand Styles -->
-    <link rel="stylesheet" href="css/brands.css">
-
-
+  
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.ico">
-
+  
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      color: #333;
+    }
+    .redirect-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    a {
+      color: #0366d6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-
 <body>
-  <!-- Google Tag Manager
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWDSNCMN"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-    <div id="site-cookie-consent-banner-simple" style="display: none;"> <p>This website uses cookies to improve your experience. By continuing to browse, you consent to our use of cookies.</p>
-    <div>
-      <button onclick="acceptSiteCookies()">Accept</button>
-      <button onclick="rejectSiteCookies()" class="reject">Reject</button>
-      </div>
+  <div class="redirect-container">
+    <h1>Redirecting...</h1>
+    <p>If you are not redirected automatically, please <a href="https://emin.devrimfidan.com">click here</a>.</p>
   </div>
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
-    <div class="row">
-      <div class="column" style="margin-top: 10%">
-        <!-- Your Image Here -->
-        <img src="/images/profile.jpg" alt="Profile Picture" class="avatar" srcset="images/profile.png 2x" alt="">
-        <!-- Title -->
-        <h1 role="heading">Emin Devrim Fidan</h1>
-        <!-- Short Bio -->
-        <p>           I help organizations and individuals build systems, strategies, and digital experiences that make sense — and make a difference.</p>
-      </p>
-        <!-- LinkedIn -->
-        <a class="button button-linked" href="https://www.linkedin.com/in/emindevrimfidan" target="_blank" rel="noopener noreferrer" role="button">
-          <img class="icon" src="images/icons/linkedin.svg" alt="LinkedIn">LinkedIn </a>
-        <br>
-               
-        <!-- Medium -->
-        <a class="button button-medium" href="https://medium.com/@emindevrimfidan" target="_blank" rel="noopener" role="button">
-          <img class="icon" src="images/icons/medium.svg" alt="Medium">Medium </a>
-        <br>
-        <!-- GitHub -->
-        <a class="button button-github" href="https://github.com/devrimfidan" target="_blank" rel="noopener" role="button">
-          <img class="icon" src="images/icons/github.svg" alt="GitHub">GitHub </a>
-        <p>
-          <a href="privacy.html">Privacy Policy</a>  |  <a href="https://tools.devrimfidan.com">Toolbox</a> |  <a href="https://emin.devrimfidan.com">Business</a>
-        </p>
-      </div>    
-    </div>
-  </div>
-
-
 </body>
-
 </html>
