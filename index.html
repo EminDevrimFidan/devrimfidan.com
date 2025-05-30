@@ -13,35 +13,25 @@
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <script>
-  function acceptCookies() {
-    // Grant consent
-    gtag('consent', 'update', {
-      'ad_storage': 'granted',
-      'analytics_storage': 'granted',
-      'ad_user_data': 'granted',
-      'ad_personalization': 'granted'
-    });
-    document.getElementById("cookie-banner").style.display = "none";
-  }
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} // Defines gtag globally
 
-  function rejectCookies() {
-    // Deny consent
-    gtag('consent', 'update', {
-      'ad_storage': 'denied',
-      'analytics_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied'
+    // 2. Set Google Consent Mode v2 Default Settings
+    //    This MUST be done BEFORE the GTM script.
+    gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'functionality_storage': 'denied', 
+        'personalization_storage': 'denied',
+        'security_storage': 'denied',      
+        'wait_for_update': 500 // Optional: Milliseconds to wait for consent update
     });
-    document.getElementById("cookie-banner").style.display = "none";
-  }
-</script>
+    // console.log('Default consent set for devrimfidan.com'); // For debugging
+  </script>
 
-<div id="cookie-banner" style="position: fixed; bottom: 0; background: #eee; width: 100%; padding: 10px;">
-  This site uses cookies. <button onclick="acceptCookies()">Accept</button>
-  <button onclick="rejectCookies()">Reject</button>
-</div>
 
 
    <!-- Google Tag Manager
@@ -61,7 +51,98 @@
   <meta property="og:url" content="https://devrimfidan.com" />
   <meta property="og:image" content="images/profile.png" />
 
+<script>
+    function acceptSiteCookies() {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'analytics_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'functionality_storage': 'granted', // Grant if your site relies on these
+        'personalization_storage': 'granted',// Grant if your site relies on these
+        'security_storage': 'granted'      // Grant if your site relies on these
+      });
+      var banner = document.getElementById("site-cookie-consent-banner");
+      if (banner) banner.style.display = "none";
+      // console.log("Accepted cookies on devrimfidan.com"); // For debugging
+      try {
+        // Using a more specific key for this domain's consent
+        localStorage.setItem('devrimfidan_actual_cookie_consent_status', 'granted');
+      } catch (e) {
+        console.warn('Could not save consent status to localStorage:', e);
+      }
+    }
 
+    function rejectSiteCookies() {
+      gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied'
+        // functionality_storage, etc., remain as per default (denied) or any other specific logic
+      });
+      var banner = document.getElementById("site-cookie-consent-banner");
+      if (banner) banner.style.display = "none";
+      // console.log("Rejected cookies on devrimfidan.com"); // For debugging
+      try {
+        // Using a more specific key for this domain's consent
+        localStorage.setItem('devrimfidan_actual_cookie_consent_status', 'denied');
+      } catch (e) {
+        console.warn('Could not save consent status to localStorage:', e);
+      }
+    }
+
+    // Function to show the banner if no consent has been given previously
+    // and re-apply consent if it was already given.
+    function checkInitialConsent() {
+      var banner = document.getElementById("site-cookie-consent-banner");
+      if (!banner) return;
+
+      try {
+        // Using a more specific key for this domain's consent
+        const consentStatus = localStorage.getItem('devrimfidan_actual_cookie_consent_status');
+        
+        if (consentStatus === 'granted' || consentStatus === 'denied') {
+          banner.style.display = "none"; // Hide banner as choice was made
+
+          // IMPORTANT: Re-apply the stored consent state immediately
+          // This ensures that GTM and tags respect the existing consent from the start.
+          if (consentStatus === 'granted') {
+             gtag('consent', 'update', {
+                'ad_storage': 'granted', 
+                'analytics_storage': 'granted', 
+                'ad_user_data': 'granted',
+                'ad_personalization': 'granted', 
+                'functionality_storage': 'granted',
+                'personalization_storage': 'granted', 
+                'security_storage': 'granted'
+             });
+             // console.log('Re-applied GRANTED consent from localStorage for devrimfidan.com');
+          } else { // consentStatus === 'denied'
+             gtag('consent', 'update', {
+                'ad_storage': 'denied', 
+                'analytics_storage': 'denied', 
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied'
+                // Other types like functionality_storage will remain as per default (denied)
+             });
+             // console.log('Re-applied DENIED consent from localStorage for devrimfidan.com');
+          }
+        } else {
+          // No consent status found in localStorage, so display the banner.
+          banner.style.display = "flex"; 
+          // console.log('No consent status in localStorage, showing banner for devrimfidan.com');
+        }
+      } catch (e) {
+        console.warn('Could not access localStorage for consent status:', e);
+        banner.style.display = "flex"; // Show banner if localStorage fails
+      }
+    }
+
+    // Check consent when the DOM is fully loaded
+    window.addEventListener('DOMContentLoaded', checkInitialConsent);
+  </script>
+  
   <!-- Twitter tags -->
   <meta name="twitter:site" content="@emindevrimfidan" />
   <meta name="twitter:title" content="Emin Devrim Fidan" />
