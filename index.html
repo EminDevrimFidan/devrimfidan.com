@@ -27,9 +27,9 @@
         'functionality_storage': 'denied', 
         'personalization_storage': 'denied',
         'security_storage': 'denied',      
-        'wait_for_update': 500 // Optional: Milliseconds to wait for consent update
+        'wait_for_update': 500 
     });
-    // console.log('Default consent set for devrimfidan.com'); // For debugging
+    // console.log('Default consent set for devrimfidan.com'); 
   </script>
 
 
@@ -43,30 +43,20 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-NWDSNCMN');</script>
   <!-- End Google Tag Manager -->
-
-  <!-- Open Graph tags -->
-  <meta property="og:title" content="Emin Devrim Fidan" />
-  <meta property="og:description" content="Experienced international student recruitment and marketing technologies professional." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://devrimfidan.com" />
-  <meta property="og:image" content="images/profile.png" />
-
-<script>
+  <script>
     function acceptSiteCookies() {
       gtag('consent', 'update', {
         'ad_storage': 'granted',
         'analytics_storage': 'granted',
         'ad_user_data': 'granted',
         'ad_personalization': 'granted',
-        'functionality_storage': 'granted', // Grant if your site relies on these
-        'personalization_storage': 'granted',// Grant if your site relies on these
-        'security_storage': 'granted'      // Grant if your site relies on these
+        'functionality_storage': 'granted',
+        'personalization_storage': 'granted',
+        'security_storage': 'granted' 
       });
-      var banner = document.getElementById("site-cookie-consent-banner");
+      var banner = document.getElementById("site-cookie-consent-banner-simple");
       if (banner) banner.style.display = "none";
-      // console.log("Accepted cookies on devrimfidan.com"); // For debugging
       try {
-        // Using a more specific key for this domain's consent
         localStorage.setItem('devrimfidan_actual_cookie_consent_status', 'granted');
       } catch (e) {
         console.warn('Could not save consent status to localStorage:', e);
@@ -79,34 +69,26 @@
         'analytics_storage': 'denied',
         'ad_user_data': 'denied',
         'ad_personalization': 'denied'
-        // functionality_storage, etc., remain as per default (denied) or any other specific logic
       });
-      var banner = document.getElementById("site-cookie-consent-banner");
+      var banner = document.getElementById("site-cookie-consent-banner-simple");
       if (banner) banner.style.display = "none";
-      // console.log("Rejected cookies on devrimfidan.com"); // For debugging
       try {
-        // Using a more specific key for this domain's consent
         localStorage.setItem('devrimfidan_actual_cookie_consent_status', 'denied');
       } catch (e) {
         console.warn('Could not save consent status to localStorage:', e);
       }
     }
 
-    // Function to show the banner if no consent has been given previously
-    // and re-apply consent if it was already given.
     function checkInitialConsent() {
-      var banner = document.getElementById("site-cookie-consent-banner");
+      var banner = document.getElementById("site-cookie-consent-banner-simple");
       if (!banner) return;
 
       try {
-        // Using a more specific key for this domain's consent
         const consentStatus = localStorage.getItem('devrimfidan_actual_cookie_consent_status');
         
         if (consentStatus === 'granted' || consentStatus === 'denied') {
-          banner.style.display = "none"; // Hide banner as choice was made
+          banner.style.display = "none"; 
 
-          // IMPORTANT: Re-apply the stored consent state immediately
-          // This ensures that GTM and tags respect the existing consent from the start.
           if (consentStatus === 'granted') {
              gtag('consent', 'update', {
                 'ad_storage': 'granted', 
@@ -117,32 +99,32 @@
                 'personalization_storage': 'granted', 
                 'security_storage': 'granted'
              });
-             // console.log('Re-applied GRANTED consent from localStorage for devrimfidan.com');
-          } else { // consentStatus === 'denied'
+          } else { 
              gtag('consent', 'update', {
                 'ad_storage': 'denied', 
                 'analytics_storage': 'denied', 
                 'ad_user_data': 'denied',
                 'ad_personalization': 'denied'
-                // Other types like functionality_storage will remain as per default (denied)
              });
-             // console.log('Re-applied DENIED consent from localStorage for devrimfidan.com');
           }
         } else {
-          // No consent status found in localStorage, so display the banner.
-          banner.style.display = "flex"; 
-          // console.log('No consent status in localStorage, showing banner for devrimfidan.com');
+          banner.style.display = "block"; // Or "flex" depending on desired layout with simple CSS
         }
       } catch (e) {
         console.warn('Could not access localStorage for consent status:', e);
-        banner.style.display = "flex"; // Show banner if localStorage fails
+        banner.style.display = "block"; // Or "flex"
       }
     }
-
-    // Check consent when the DOM is fully loaded
     window.addEventListener('DOMContentLoaded', checkInitialConsent);
   </script>
-  
+  <!-- Open Graph tags -->
+  <meta property="og:title" content="Emin Devrim Fidan" />
+  <meta property="og:description" content="Experienced international student recruitment and marketing technologies professional." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://devrimfidan.com" />
+  <meta property="og:image" content="images/profile.png" />
+
+
   <!-- Twitter tags -->
   <meta name="twitter:site" content="@emindevrimfidan" />
   <meta name="twitter:title" content="Emin Devrim Fidan" />
@@ -152,6 +134,57 @@
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
+    <style>
+    /* Simple styles for the new cookie banner */
+    #site-cookie-consent-banner-simple {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333; /* Dark background */
+      color: white;
+      padding: 15px;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+      z-index: 1000;
+      text-align: center;
+    }
+    #site-cookie-consent-banner-simple p {
+      margin: 0 0 10px 0;
+      font-size: 0.9em;
+    }
+    #site-cookie-consent-banner-simple button {
+      background-color: #5cb85c; /* Green for accept */
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      margin: 0 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+    #site-cookie-consent-banner-simple button.reject {
+      background-color: #d9534f; /* Red for reject */
+    }
+    #site-cookie-consent-banner-simple button:hover {
+      opacity: 0.9;
+    }
+    /* Responsive adjustments for simple banner */
+    @media (min-width: 600px) {
+      #site-cookie-consent-banner-simple {
+        display: flex; /* Use flex for larger screens */
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+      }
+      #site-cookie-consent-banner-simple p {
+        margin: 0 15px 0 0; /* Add some margin to the right of the text */
+        flex-grow: 1; /* Allow text to take available space */
+      }
+      #site-cookie-consent-banner-simple div { /* Container for buttons */
+        white-space: nowrap; /* Prevent buttons from wrapping on small flex containers */
+      }
+    }
+  </style>
 
     <!-- Themes:
             Auto:   css/skeleton-auto.css
@@ -177,14 +210,19 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWDSNCMN"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  
+    <div id="site-cookie-consent-banner-simple" style="display: none;"> <p>This website uses cookies to improve your experience. By continuing to browse, you consent to our use of cookies.</p>
+    <div>
+      <button onclick="acceptSiteCookies()">Accept</button>
+      <button onclick="rejectSiteCookies()" class="reject">Reject</button>
+      </div>
+  </div>
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
     <div class="row">
       <div class="column" style="margin-top: 10%">
         <!-- Your Image Here -->
-        <img src="https://lh3.googleusercontent.com/a/ACg8ocIPzW4UpXtr0aoON7uL7Mah3NtGxBVAtgtHxg0tWdWd3wcWXp10xK1TXAfBAMPe-3AVrCTodszDFwPIZHUH6Es4GfmljcWZcA=s288-c-no" class="avatar" srcset="images/profile.png 2x" alt="">
+        <img src="/images/profile.jpg" alt="Profile Picture" class="avatar" srcset="images/profile.png 2x" alt="">
         <!-- Title -->
         <h1 role="heading">Emin Devrim Fidan</h1>
         <!-- Short Bio -->
